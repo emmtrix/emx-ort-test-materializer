@@ -1,0 +1,6 @@
+# Runtime dependencies for emx-ort-test-materializer
+# Add packages here as the extraction logic is implemented.
+
+onnx
+onnxruntime
+numpy
