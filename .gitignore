@@ -205,3 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# NOTE: The artifacts/ directory must be committed to version control.
+# Do NOT add an artifacts/ entry here.
