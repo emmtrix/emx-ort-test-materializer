@@ -17,22 +17,26 @@ test-suites) without requiring a full ONNX Runtime build.
 
 ---
 
-## Current Phase: Scaffolding Only
+## Current Phase: Early Implementation
 
-The repository is currently in the **scaffolding phase**.  No extraction logic
-has been implemented yet.  The primary goal right now is to establish a clean,
-extensible project structure.
+The repository is currently in an **early implementation phase**.  The primary
+goal is to build a minimal but working extraction pipeline for ONNX Runtime
+tests, starting with reusable metadata extraction for C++ `OpTester`-based
+tests and expanding from there.
 
 ---
 
 ## Constraints
 
-- **Do not execute ONNX Runtime tests** during this phase.
-- **Do not compile or run C++ test binaries** at any phase.
-- **Do not generate any artifact files** (`.onnx`, `.pb`) yet.
+- Building C++ code and executing C++ test code is allowed when needed for
+  extraction or validation work.
+- **Do not generate final artifact files** (`.onnx`, `.pb`) yet.
+- Generating intermediate JSON extraction metadata is allowed.
+- Checked-in JSON extraction metadata should live outside `build/`.
 - Do **not** move, retarget, update, or otherwise alter the ONNX Runtime
   submodule.
-- Keep all Python files as **placeholders with docstrings** only.
+- Python files may contain minimal orchestration logic needed to build or run
+  the extractor pipeline.
 - Do **not** add `pyproject.toml` or packaging configuration – this is a
   non-packaged utility.
 - Do **not** add CI workflows, test runners, or complex tooling.
@@ -54,8 +58,8 @@ extensible project structure.
 
 ## Rules
 
-1. No execution of ORT tests yet.
-2. No generation of artifact files yet.
+1. C++ builds and C++ test execution are allowed when required.
+2. No generation of final `.onnx` or `.pb` artifact files yet.
 3. Keep logic minimal and explicit.
 4. New modules must include a module-level docstring describing their future
    responsibility before any implementation is added.
