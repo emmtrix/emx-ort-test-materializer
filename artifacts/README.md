@@ -47,6 +47,7 @@ artifacts/
 |---------------------------------------------------|------------------------------------------------|----------------------------|
 | `onnxruntime/test/python/contrib_ops/<file>.py`   | `test/python/contrib_ops/<file>/<test_case>/`  | Python instrumentation     |
 | `onnxruntime/test/python/<file>.py`               | `test/python/<file>/<test_case>/`              | Python instrumentation     |
+| `onnxruntime/test/contrib_ops/<file>.cc`          | `test/contrib_ops/<file>/<test_name>_run<n>/`  | Runtime `OpTester` wrapper |
 | `onnxruntime/test/testdata/<name>/`               | `test/testdata/<name>/`                        | Static copy from submodule |
 | `onnxruntime/test/providers/<name>/`              | `test/providers/<name>/`                       | Static copy from submodule |
 
@@ -55,10 +56,11 @@ artifacts/
 | Segment              | Derivation                                                       |
 |----------------------|------------------------------------------------------------------|
 | `<test_file>`        | Python test module name, e.g. `test_conv`                       |
-| `<test_case>`        | Test method or parametrize ID, e.g. `test_conv_basic`           |
+| `<test_case>`        | Python test method or parametrize ID, e.g. `test_conv_basic`    |
+| `<test_name>_run<n>` | C++ gtest name plus zero-based `Run()` index, e.g. `Foo_run0`   |
 | `input_<i>.pb`       | Inputs in the order passed to `InferenceSession.run()`          |
-| `output_<i>.pb`      | Outputs in the order returned by `InferenceSession.run()`       |
-| `test_data_set_<n>/` | Indexed from `0`; one directory per distinct invocation         |
+| `output_<i>.pb`      | Outputs in capture order; for C++ runtime mode these are the expected `OpTester` outputs |
+| `test_data_set_<n>/` | Indexed from `0`; currently `test_data_set_0` per extracted run |
 
 ---
 
@@ -81,6 +83,7 @@ artifacts/
 
 ## Status
 
-No artifacts have been generated yet.  This directory is a placeholder pending
-the implementation of the extraction scripts.  See
-[`AGENTS.md`](../AGENTS.md) for the planned next steps.
+The runtime C++ extractor can already generate concrete artifacts for
+`OpTester`-based contrib-op tests. The Python-side extraction pipeline and the
+static mirroring of existing ORT `testdata/` and `providers/` assets remain
+future work.

@@ -19,9 +19,9 @@ This tool extracts those artifacts by:
 
 - **Python tests** – instrumenting the Python test modules to intercept
   `InferenceSession` calls and capture model bytes and numpy tensors at runtime.
-- **C++ tests** – extracting reusable JSON metadata from ORT `OpTester`-based
-  C++ tests and locating any pre-existing test-data files already present in
-  the ORT source tree.
+- **C++ tests** – executing ORT `OpTester`-based unit tests through an
+  out-of-tree wrapper, capturing JSON metadata, and serializing `model.onnx`
+  plus `input_*.pb` / `output_*.pb` artifacts per `Run()`.
 
 The resulting artifacts are committed to this repository so that downstream consumers
 (e.g. emmtrix compiler test-suites) can reference them without requiring a running ORT
@@ -34,9 +34,9 @@ installation or a full build.
 - Read test sources and data from the bundled ONNX Runtime submodule.
 - **Python tests**: instrument `InferenceSession` / helper calls to capture model and
   input/output tensors.
-- **C++ tests**: discover and collect test-data files (`.onnx`, `.pb`) referenced by
-  C++ test sources, and extract JSON rules from `OpTester`-based Microsoft/contrib-op
-  tests for later Python-side materialization.
+- **C++ tests**: discover and collect pre-existing test-data files (`.onnx`, `.pb`)
+  referenced by C++ test sources, and execute `OpTester`-based Microsoft/contrib-op
+  tests to materialize reusable JSON metadata and runtime artifacts.
 - Write all artifacts to `artifacts/` in a layout that mirrors the ORT test directory tree.
 - Commit the resulting artifacts to this repository for reproducible consumption.
 
@@ -46,9 +46,8 @@ installation or a full build.
 
 - This is **not** a distributable Python package.
 - It does **not** run the full ORT test-suite.
-- It does **not** modify ONNX Runtime source code.
+- It does **not** modify ONNX Runtime source code or the bundled submodule.
 - It does **not** provide CI or automated publishing.
-- It does **not** generate final `.onnx` or `.pb` artifacts from C++ tests yet.
 
 ---
 
@@ -100,11 +99,9 @@ the layout and naming conventions.
 ├── .github/
 │   └── copilot-instructions.md
 ├── scripts/
-│   └── extract_test_artifacts.py     # builds and runs the C++ extractor
+│   └── extract_test_artifacts.py     # builds and runs the runtime C++ extractor
 ├── cpp/
-│   └── ort_cpp_test_extractor.cpp    # standalone C++ source extractor
-├── metadata/
-│   └── ort_cpp_test_rules.json       # checked-in extracted C++ test metadata
+│   └── runtime_extractor/            # runtime C++ wrapper around ORT tests
 ├── src/
 │   └── emx_ort_test_materializer/
 │       ├── __init__.py
@@ -123,9 +120,8 @@ the layout and naming conventions.
 1. **Python test instrumentation** – wrap `onnxruntime.InferenceSession` and
    related helpers in the contrib-ops test files to intercept model bytes and
    numpy input arrays before execution.
-2. **C++ metadata extraction** – scan ORT `OpTester`-based C++ tests and emit JSON
-   rules containing operator metadata, attributes, and input tensors where they can
-   be resolved statically.
+2. **C++ runtime extraction** – execute ORT `OpTester`-based C++ tests and emit JSON
+   metadata plus `model.onnx` / `input_*.pb` / `output_*.pb` artifacts per run.
 3. **Serialize Python-test models** – write captured ONNX `ModelProto` objects to
    `model.onnx` using `model.SerializeToString()`.
 4. **Serialize Python-test tensors** – convert numpy arrays to `onnx.TensorProto`
@@ -139,30 +135,40 @@ the layout and naming conventions.
 
 ## Current C++ Extractor
 
-The repository now includes a standalone C++ extractor at
-`cpp/ort_cpp_test_extractor.cpp` and a thin Python wrapper at
-`scripts/extract_test_artifacts.py`.
+The runtime extractor under `cpp/runtime_extractor/` builds a small out-of-tree
+ORT test runner, executes the selected C++ unit tests, and captures the real
+`OpTester` models and tensors from the running process.
 
 Current behavior:
 
-- Scans ORT C++ test sources for `OpTester`-based tests.
-- Extracts JSON rules for Microsoft-domain (`kMSDomain`) tests by default.
-- Captures operator name, opset, domain, attributes, and input/output tensor
-  definitions when they can be resolved statically.
-- Marks each extracted record as `complete`, `partial`, or `metadata_only`
-  depending on how much tensor data could be resolved.
+- Builds ONNX Runtime test utilities without modifying the submodule.
+- Compiles a wrapper executable that includes the selected ORT test source.
+- Scans only `OpTester`-based C++ sources in directory mode.
+- Redirects `OpTester` usage through a capturing subclass.
+- Writes `model.onnx`, `test_data_set_0/input_*.pb`, and `test_data_set_0/output_*.pb`
+  under `artifacts/` by default.
+- Serializes the same captured tensors as base64-encoded raw bytes in JSON.
+
+Artifact directories use the ORT-relative source path and the per-run suffix
+`<test_name>_run<n>` as the lowest directory level. For example:
+
+```text
+artifacts/onnxruntime/test/contrib_ops/qlinear_lookup_table_test/QLinearLeakyRelu_Int8_run0/
+```
 
 Example:
 
 ```bash
 python scripts/extract_test_artifacts.py \
-  --cpp-source onnxruntime-org/onnxruntime/test/contrib_ops
+  --cpp-source onnxruntime-org/onnxruntime/test/contrib_ops/qlinear_lookup_table_test.cc \
+  --artifacts-output artifacts \
+  --gtest-filter QLinearLookupTableBasedOperatorTests.*
 ```
 
-The generated JSON is intended to be consumed by later Python steps that build
-`ModelProto` objects and materialize optional `.pb` inputs/outputs. By default,
-the checked-in output is written to `metadata/ort_cpp_test_rules.json`, while
-temporary build products stay under the ignored `build/` directory.
+The runtime command always emits JSON alongside the artifacts. By default, it
+writes to `build/ort_runtime_contrib_ops.json`, artifacts are written under
+`artifacts/`, and temporary build products stay under the ignored `build/`
+directory.
 
 ---
 

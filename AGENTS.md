@@ -30,9 +30,11 @@ tests and expanding from there.
 
 - Building C++ code and executing C++ test code is allowed when needed for
   extraction or validation work.
-- **Do not generate final artifact files** (`.onnx`, `.pb`) yet.
+- Generating final artifact files (`.onnx`, `.pb`) is allowed when explicitly
+  requested or when validating the runtime C++ extraction pipeline.
 - Generating intermediate JSON extraction metadata is allowed.
-- Checked-in JSON extraction metadata should live outside `build/`.
+- Runtime extraction JSON should default to `build/` unless the user explicitly
+  requests another location.
 - Do **not** move, retarget, update, or otherwise alter the ONNX Runtime
   submodule.
 - Python files may contain minimal orchestration logic needed to build or run
@@ -59,7 +61,8 @@ tests and expanding from there.
 ## Rules
 
 1. C++ builds and C++ test execution are allowed when required.
-2. No generation of final `.onnx` or `.pb` artifact files yet.
+2. Generation of `.onnx` and `.pb` artifact files is allowed for extractor
+   outputs and validation runs.
 3. Keep logic minimal and explicit.
 4. New modules must include a module-level docstring describing their future
    responsibility before any implementation is added.

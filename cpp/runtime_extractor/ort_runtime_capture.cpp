@@ -1,0 +1,750 @@
+// Runtime capture helpers for executing ORT OpTester-based unit tests and
+// exporting reusable JSON metadata plus ONNX/TensorProto artifacts.
+
+#include "cpp/runtime_extractor/ort_runtime_capture.h"
+
+#include <algorithm>
+#include <cstddef>
+#include <cstdint>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <iterator>
+#include <optional>
+#include <ostream>
+#include <set>
+#include <sstream>
+#include <string>
+#include <string_view>
+#include <utility>
+
+#include <google/protobuf/message_lite.h>
+#include "gtest/gtest.h"
+
+#include "core/framework/tensorprotoutils.h"
+#include "emx_runtime_capture_config.h"
+
+namespace fs = std::filesystem;
+
+namespace emx::ort_runtime {
+namespace {
+
+std::string JsonEscape(std::string_view value) {
+  std::string escaped;
+  escaped.reserve(value.size() + 8);
+
+  for (const unsigned char c : value) {
+    switch (c) {
+      case '\\':
+        escaped += "\\\\";
+        break;
+      case '"':
+        escaped += "\\\"";
+        break;
+      case '\b':
+        escaped += "\\b";
+        break;
+      case '\f':
+        escaped += "\\f";
+        break;
+      case '\n':
+        escaped += "\\n";
+        break;
+      case '\r':
+        escaped += "\\r";
+        break;
+      case '\t':
+        escaped += "\\t";
+        break;
+      default:
+        if (c >= 0x20 && c <= 0x7E) {
+          escaped.push_back(static_cast<char>(c));
+        } else {
+          constexpr char kHexDigits[] = "0123456789ABCDEF";
+          escaped += "\\u00";
+          escaped.push_back(kHexDigits[(c >> 4) & 0x0F]);
+          escaped.push_back(kHexDigits[c & 0x0F]);
+        }
+        break;
+    }
+  }
+
+  return escaped;
+}
+
+void WriteIndent(std::ostream& out, int indent) {
+  for (int i = 0; i < indent; ++i) {
+    out.put(' ');
+  }
+}
+
+void WriteStringArray(std::ostream& out, const std::vector<std::string>& values, int indent) {
+  out << "[";
+  if (!values.empty()) {
+    out << "\n";
+  }
+
+  for (size_t index = 0; index < values.size(); ++index) {
+    WriteIndent(out, indent + 2);
+    out << "\"" << JsonEscape(values[index]) << "\"";
+    if (index + 1 < values.size()) {
+      out << ",";
+    }
+    out << "\n";
+  }
+
+  if (!values.empty()) {
+    WriteIndent(out, indent);
+  }
+  out << "]";
+}
+
+void WriteIntArray(std::ostream& out, const std::vector<int64_t>& values, int indent) {
+  out << "[";
+  if (!values.empty()) {
+    out << "\n";
+  }
+
+  for (size_t index = 0; index < values.size(); ++index) {
+    WriteIndent(out, indent + 2);
+    out << values[index];
+    if (index + 1 < values.size()) {
+      out << ",";
+    }
+    out << "\n";
+  }
+
+  if (!values.empty()) {
+    WriteIndent(out, indent);
+  }
+  out << "]";
+}
+
+void WriteDoubleArray(std::ostream& out, const std::vector<double>& values, int indent) {
+  out << "[";
+  if (!values.empty()) {
+    out << "\n";
+  }
+
+  for (size_t index = 0; index < values.size(); ++index) {
+    WriteIndent(out, indent + 2);
+    out << std::setprecision(17) << values[index];
+    if (index + 1 < values.size()) {
+      out << ",";
+    }
+    out << "\n";
+  }
+
+  if (!values.empty()) {
+    WriteIndent(out, indent);
+  }
+  out << "]";
+}
+
+std::string Base64Encode(const std::byte* data, size_t size) {
+  static constexpr char kAlphabet[] =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+  std::string encoded;
+  encoded.reserve(((size + 2) / 3) * 4);
+
+  for (size_t index = 0; index < size; index += 3) {
+    const size_t remaining = std::min<size_t>(3, size - index);
+    uint32_t block = static_cast<uint32_t>(std::to_integer<unsigned char>(data[index])) << 16;
+    if (remaining > 1) {
+      block |= static_cast<uint32_t>(std::to_integer<unsigned char>(data[index + 1])) << 8;
+    }
+    if (remaining > 2) {
+      block |= static_cast<uint32_t>(std::to_integer<unsigned char>(data[index + 2]));
+    }
+
+    encoded.push_back(kAlphabet[(block >> 18) & 0x3F]);
+    encoded.push_back(kAlphabet[(block >> 12) & 0x3F]);
+    encoded.push_back(remaining > 1 ? kAlphabet[(block >> 6) & 0x3F] : '=');
+    encoded.push_back(remaining > 2 ? kAlphabet[block & 0x3F] : '=');
+  }
+
+  return encoded;
+}
+
+std::string SanitizePathComponent(std::string_view value) {
+  std::string sanitized;
+  sanitized.reserve(value.size());
+
+  for (const unsigned char c : value) {
+    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == '_' || c == '-') {
+      sanitized.push_back(static_cast<char>(c));
+    } else {
+      sanitized.push_back('_');
+    }
+  }
+
+  if (sanitized.empty()) {
+    sanitized = "unnamed";
+  }
+
+  return sanitized;
+}
+
+void WriteBinaryProtoToFile(const google::protobuf::MessageLite& proto, const fs::path& output_path) {
+  if (output_path.has_parent_path()) {
+    fs::create_directories(output_path.parent_path());
+  }
+
+  std::ofstream output(output_path, std::ios::binary);
+  ORT_ENFORCE(output.good(), "Failed to open output file: ", output_path.string());
+  ORT_ENFORCE(proto.SerializeToOstream(&output), "Failed to serialize proto to file: ", output_path.string());
+}
+
+fs::path BuildArtifactDirectory(const CapturedRecord& record, const fs::path& artifact_root) {
+  const fs::path source_file(record.source_file);
+  return artifact_root / source_file.parent_path() / source_file.stem() /
+         (SanitizePathComponent(record.test_name) + "_run" + std::to_string(record.run_index));
+}
+
+void WriteArtifacts(CapturingOpTester& tester, CapturedRecord& record) {
+  const fs::path& artifact_root = CaptureCollector::Instance().ArtifactRoot();
+  if (artifact_root.empty()) {
+    return;
+  }
+
+  const fs::path artifact_dir = BuildArtifactDirectory(record, artifact_root);
+  const fs::path dataset_dir = artifact_dir / "test_data_set_0";
+  fs::create_directories(dataset_dir);
+
+  try {
+    onnxruntime::Model& model = tester.BuildModel();
+    const auto resolve_status = model.MainGraph().Resolve({});
+    if (!resolve_status.IsOK()) {
+      record.warnings.push_back("Graph resolve failed before serializing model: " + resolve_status.ErrorMessage());
+    }
+
+    auto model_proto = model.ToProto();
+    const fs::path model_path = artifact_dir / "model.onnx";
+    WriteBinaryProtoToFile(model_proto, model_path);
+    record.artifact_directory = fs::relative(artifact_dir, artifact_root).generic_string();
+    record.model_path = fs::relative(model_path, artifact_root).generic_string();
+  } catch (const std::exception& exception) {
+    record.warnings.push_back("Failed to serialize model artifact: " + std::string(exception.what()));
+  }
+
+  const auto initializer_indexes = std::set<size_t>(
+      tester.CapturedInitializerIndexes().begin(),
+      tester.CapturedInitializerIndexes().end());
+
+  size_t input_index = 0;
+  const auto& input_data = tester.CapturedInputData();
+  for (size_t index = 0; index < input_data.size(); ++index) {
+    const auto& input = input_data[index];
+    if (initializer_indexes.count(index) > 0 || !input.data.IsAllocated()) {
+      continue;
+    }
+
+    if (!input.data.IsTensor()) {
+      record.warnings.push_back("Skipping non-tensor input artifact for " + input.def.Name());
+      continue;
+    }
+
+    const fs::path input_path = dataset_dir / ("input_" + std::to_string(input_index++) + ".pb");
+    try {
+      const auto& tensor = input.data.Get<onnxruntime::Tensor>();
+      auto tensor_proto = onnxruntime::utils::TensorToTensorProto(tensor, input.def.Name());
+      WriteBinaryProtoToFile(tensor_proto, input_path);
+      record.input_files.push_back(fs::relative(input_path, artifact_root).generic_string());
+    } catch (const std::exception& exception) {
+      record.warnings.push_back("Failed to serialize input artifact for " + input.def.Name() + ": " + exception.what());
+    }
+  }
+
+  size_t output_index = 0;
+  const auto& output_data = tester.CapturedOutputData();
+  for (const auto& output : output_data) {
+    if (!output.data.IsAllocated()) {
+      continue;
+    }
+
+    if (!output.data.IsTensor()) {
+      record.warnings.push_back("Skipping non-tensor output artifact for " + output.def.Name());
+      continue;
+    }
+
+    const fs::path output_path = dataset_dir / ("output_" + std::to_string(output_index++) + ".pb");
+    try {
+      const auto& tensor = output.data.Get<onnxruntime::Tensor>();
+      auto tensor_proto = onnxruntime::utils::TensorToTensorProto(tensor, output.def.Name());
+      WriteBinaryProtoToFile(tensor_proto, output_path);
+      record.output_files.push_back(fs::relative(output_path, artifact_root).generic_string());
+    } catch (const std::exception& exception) {
+      record.warnings.push_back("Failed to serialize output artifact for " + output.def.Name() + ": " + exception.what());
+    }
+  }
+}
+
+CapturedTensor CaptureOrtValue(
+    const std::string& name,
+    const OrtValue& value,
+    bool is_initializer) {
+  CapturedTensor tensor;
+  tensor.name = name;
+  tensor.is_initializer = is_initializer;
+
+  if (!value.IsAllocated()) {
+    tensor.value_kind = "none";
+    return tensor;
+  }
+
+  if (!value.IsTensor()) {
+    tensor.value_kind = "unsupported";
+    tensor.warnings.push_back("Only tensor OrtValue inputs are currently serialized in runtime mode.");
+    return tensor;
+  }
+
+  const auto& ort_tensor = value.Get<onnxruntime::Tensor>();
+  tensor.value_kind = "tensor";
+  tensor.element_type = ort_tensor.GetElementType();
+  const auto dims = ort_tensor.Shape().GetDims();
+  tensor.shape.assign(dims.begin(), dims.end());
+  tensor.has_data = true;
+
+  if (ort_tensor.IsDataTypeString()) {
+    const std::string* strings = ort_tensor.Data<std::string>();
+    tensor.string_data.assign(strings, strings + ort_tensor.Shape().Size());
+    return tensor;
+  }
+
+  tensor.data_encoding = "base64";
+  tensor.data_base64 = Base64Encode(
+      reinterpret_cast<const std::byte*>(ort_tensor.DataRaw()),
+      ort_tensor.SizeInBytes());
+  return tensor;
+}
+
+CapturedAttribute CaptureAttribute(const ONNX_NAMESPACE::AttributeProto& attribute) {
+  CapturedAttribute captured;
+  captured.name = attribute.name();
+
+  switch (attribute.type()) {
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_INT:
+      captured.value_kind = "int";
+      captured.int_value = attribute.i();
+      break;
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_FLOAT:
+      captured.value_kind = "float";
+      captured.float_value = attribute.f();
+      break;
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_STRING:
+      captured.value_kind = "string";
+      captured.string_value = attribute.s();
+      break;
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_INTS:
+      captured.value_kind = "ints";
+      captured.ints_value.assign(attribute.ints().begin(), attribute.ints().end());
+      break;
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_FLOATS:
+      captured.value_kind = "floats";
+      captured.floats_value.assign(attribute.floats().begin(), attribute.floats().end());
+      break;
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_STRINGS:
+      captured.value_kind = "strings";
+      captured.strings_value.assign(attribute.strings().begin(), attribute.strings().end());
+      break;
+    case ONNX_NAMESPACE::AttributeProto_AttributeType_TENSOR: {
+      captured.value_kind = "tensor";
+      const auto& tensor = attribute.t();
+      captured.tensor_element_type = tensor.data_type();
+      captured.tensor_shape.assign(tensor.dims().begin(), tensor.dims().end());
+
+      if (!tensor.string_data().empty()) {
+        captured.tensor_string_data.assign(tensor.string_data().begin(), tensor.string_data().end());
+      } else if (!tensor.raw_data().empty()) {
+        captured.tensor_data_encoding = "base64";
+        captured.tensor_data_base64 = Base64Encode(
+            reinterpret_cast<const std::byte*>(tensor.raw_data().data()),
+            tensor.raw_data().size());
+      } else {
+        captured.warnings.push_back("Tensor attribute does not contain raw_data or string_data.");
+      }
+      break;
+    }
+    default:
+      captured.value_kind = "unsupported";
+      captured.warnings.push_back("Unsupported attribute type in runtime capture.");
+      break;
+  }
+
+  return captured;
+}
+
+std::string CompletenessOf(const CapturedRecord& record) {
+  if (record.inputs.empty()) {
+    return "metadata_only";
+  }
+
+  const bool all_inputs_serialized = std::all_of(
+      record.inputs.begin(),
+      record.inputs.end(),
+      [](const CapturedTensor& tensor) { return tensor.has_data || tensor.value_kind == "none"; });
+
+  return all_inputs_serialized ? "complete" : "partial";
+}
+
+void WriteTensor(std::ostream& out, const CapturedTensor& tensor, int indent) {
+  WriteIndent(out, indent);
+  out << "{\n";
+  WriteIndent(out, indent + 2);
+  out << "\"name\": \"" << JsonEscape(tensor.name) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"value_kind\": \"" << JsonEscape(tensor.value_kind) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"element_type\": " << tensor.element_type << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"shape\": ";
+  WriteIntArray(out, tensor.shape, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"is_initializer\": " << (tensor.is_initializer ? "true" : "false") << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"has_data\": " << (tensor.has_data ? "true" : "false") << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"data_encoding\": \"" << JsonEscape(tensor.data_encoding) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"data_base64\": \"" << JsonEscape(tensor.data_base64) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"string_data\": ";
+  WriteStringArray(out, tensor.string_data, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"warnings\": ";
+  WriteStringArray(out, tensor.warnings, indent + 2);
+  out << "\n";
+  WriteIndent(out, indent);
+  out << "}";
+}
+
+void WriteTensorList(std::ostream& out, const std::vector<CapturedTensor>& tensors, int indent) {
+  out << "[";
+  if (!tensors.empty()) {
+    out << "\n";
+  }
+
+  for (size_t index = 0; index < tensors.size(); ++index) {
+    WriteTensor(out, tensors[index], indent + 2);
+    if (index + 1 < tensors.size()) {
+      out << ",";
+    }
+    out << "\n";
+  }
+
+  if (!tensors.empty()) {
+    WriteIndent(out, indent);
+  }
+  out << "]";
+}
+
+void WriteAttribute(std::ostream& out, const CapturedAttribute& attribute, int indent) {
+  WriteIndent(out, indent);
+  out << "{\n";
+  WriteIndent(out, indent + 2);
+  out << "\"name\": \"" << JsonEscape(attribute.name) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"value_kind\": \"" << JsonEscape(attribute.value_kind) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"int_value\": ";
+  if (attribute.int_value.has_value()) {
+    out << *attribute.int_value;
+  } else {
+    out << "null";
+  }
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"float_value\": ";
+  if (attribute.float_value.has_value()) {
+    out << std::setprecision(17) << *attribute.float_value;
+  } else {
+    out << "null";
+  }
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"string_value\": ";
+  if (attribute.string_value.has_value()) {
+    out << "\"" << JsonEscape(*attribute.string_value) << "\"";
+  } else {
+    out << "null";
+  }
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"ints_value\": ";
+  WriteIntArray(out, attribute.ints_value, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"floats_value\": ";
+  WriteDoubleArray(out, attribute.floats_value, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"strings_value\": ";
+  WriteStringArray(out, attribute.strings_value, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"tensor_element_type\": " << attribute.tensor_element_type << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"tensor_shape\": ";
+  WriteIntArray(out, attribute.tensor_shape, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"tensor_data_encoding\": \"" << JsonEscape(attribute.tensor_data_encoding) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"tensor_data_base64\": \"" << JsonEscape(attribute.tensor_data_base64) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"tensor_string_data\": ";
+  WriteStringArray(out, attribute.tensor_string_data, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"warnings\": ";
+  WriteStringArray(out, attribute.warnings, indent + 2);
+  out << "\n";
+  WriteIndent(out, indent);
+  out << "}";
+}
+
+void WriteAttributeList(std::ostream& out, const std::vector<CapturedAttribute>& attributes, int indent) {
+  out << "[";
+  if (!attributes.empty()) {
+    out << "\n";
+  }
+
+  for (size_t index = 0; index < attributes.size(); ++index) {
+    WriteAttribute(out, attributes[index], indent + 2);
+    if (index + 1 < attributes.size()) {
+      out << ",";
+    }
+    out << "\n";
+  }
+
+  if (!attributes.empty()) {
+    WriteIndent(out, indent);
+  }
+  out << "]";
+}
+
+void WriteRecord(std::ostream& out, const CapturedRecord& record, int indent) {
+  WriteIndent(out, indent);
+  out << "{\n";
+  WriteIndent(out, indent + 2);
+  out << "\"source_file\": \"" << JsonEscape(record.source_file) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"test_suite\": \"" << JsonEscape(record.test_suite) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"test_name\": \"" << JsonEscape(record.test_name) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"run_index\": " << record.run_index << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"op_name\": \"" << JsonEscape(record.op_name) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"opset\": " << record.opset << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"domain\": \"" << JsonEscape(record.domain) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"saw_run_call\": " << (record.saw_run_call ? "true" : "false") << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"node_count\": " << record.node_count << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"artifact_directory\": \"" << JsonEscape(record.artifact_directory) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"model_path\": \"" << JsonEscape(record.model_path) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"input_files\": ";
+  WriteStringArray(out, record.input_files, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"output_files\": ";
+  WriteStringArray(out, record.output_files, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"completeness\": \"" << CompletenessOf(record) << "\",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"inputs\": ";
+  WriteTensorList(out, record.inputs, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"outputs\": ";
+  WriteTensorList(out, record.outputs, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"attributes\": ";
+  WriteAttributeList(out, record.attributes, indent + 2);
+  out << ",\n";
+  WriteIndent(out, indent + 2);
+  out << "\"warnings\": ";
+  WriteStringArray(out, record.warnings, indent + 2);
+  out << "\n";
+  WriteIndent(out, indent);
+  out << "}";
+}
+
+CapturedRecord BuildRecordFromTester(CapturingOpTester& tester, bool saw_run_call, int run_index) {
+  CapturedRecord record;
+  record.source_file = EMX_ORT_CAPTURE_SOURCE_FILE_REL;
+  record.run_index = run_index;
+  record.saw_run_call = saw_run_call;
+  record.op_name = tester.CapturedOpName();
+  record.opset = tester.CapturedOpset();
+  record.domain = tester.CapturedDomain();
+
+  if (const auto* test_info = ::testing::UnitTest::GetInstance()->current_test_info(); test_info != nullptr) {
+    record.test_suite = test_info->test_suite_name();
+    record.test_name = test_info->name();
+  }
+
+  const auto initializer_indexes = std::set<size_t>(
+      tester.CapturedInitializerIndexes().begin(),
+      tester.CapturedInitializerIndexes().end());
+
+  record.warnings.push_back(
+      "Runtime mode currently captures inputs and expected outputs directly from OpTester. "
+      "Attributes remain empty until a later merge step enriches them.");
+
+  WriteArtifacts(tester, record);
+
+  const auto& input_data = tester.CapturedInputData();
+  for (size_t index = 0; index < input_data.size(); ++index) {
+    const bool is_initializer = initializer_indexes.count(index) > 0;
+    record.inputs.push_back(CaptureOrtValue(input_data[index].def.Name(), input_data[index].data, is_initializer));
+  }
+
+  const auto& output_data = tester.CapturedOutputData();
+  for (const auto& output : output_data) {
+    record.outputs.push_back(CaptureOrtValue(output.def.Name(), output.data, false));
+  }
+
+  return record;
+}
+
+}  // namespace
+
+CaptureCollector& CaptureCollector::Instance() {
+  static CaptureCollector collector;
+  return collector;
+}
+
+void CaptureCollector::Reset(std::string source_root_relative, std::string source_file_relative, fs::path artifact_root) {
+  source_root_relative_ = std::move(source_root_relative);
+  source_file_relative_ = std::move(source_file_relative);
+  artifact_root_ = std::move(artifact_root);
+  records_.clear();
+}
+
+void CaptureCollector::AddRecord(CapturedRecord record) {
+  if (record.source_file.empty()) {
+    record.source_file = source_file_relative_;
+  }
+
+  records_.push_back(std::move(record));
+}
+
+size_t CaptureCollector::RecordCount() const noexcept {
+  return records_.size();
+}
+
+const fs::path& CaptureCollector::ArtifactRoot() const noexcept {
+  return artifact_root_;
+}
+
+void CaptureCollector::WriteJson(const fs::path& output_path) const {
+  if (output_path.has_parent_path()) {
+    fs::create_directories(output_path.parent_path());
+  }
+
+  std::ofstream output(output_path);
+  output << "{\n";
+  WriteIndent(output, 2);
+  output << "\"capture_mode\": \"runtime\",\n";
+  WriteIndent(output, 2);
+  output << "\"source_root\": \"" << JsonEscape(source_root_relative_) << "\",\n";
+  WriteIndent(output, 2);
+  output << "\"source_file\": \"" << JsonEscape(source_file_relative_) << "\",\n";
+  WriteIndent(output, 2);
+  output << "\"artifact_root\": \"" << JsonEscape(artifact_root_.generic_string()) << "\",\n";
+  WriteIndent(output, 2);
+  output << "\"record_count\": " << records_.size() << ",\n";
+  WriteIndent(output, 2);
+  output << "\"records\": [\n";
+
+  for (size_t index = 0; index < records_.size(); ++index) {
+    WriteRecord(output, records_[index], 4);
+    if (index + 1 < records_.size()) {
+      output << ",";
+    }
+    output << "\n";
+  }
+
+  WriteIndent(output, 2);
+  output << "]\n";
+  output << "}\n";
+}
+
+CapturingOpTester::~CapturingOpTester() {
+  try {
+    if (capture_count_ == 0) {
+      CaptureSnapshot(false);
+    }
+  } catch (...) {
+  }
+}
+
+void CapturingOpTester::Run(
+    ExpectResult expect_result,
+    const std::string& expected_failure_string,
+    const std::unordered_set<std::string>& excluded_provider_types,
+    const onnxruntime::RunOptions* run_options,
+    std::vector<std::unique_ptr<onnxruntime::IExecutionProvider>>* execution_providers,
+    ExecutionMode execution_mode,
+    const onnxruntime::Graph::ResolveOptions& resolve_options) {
+  CaptureSnapshot(true);
+  onnxruntime::test::OpTester::Run(
+      expect_result,
+      expected_failure_string,
+      excluded_provider_types,
+      run_options,
+      execution_providers,
+      execution_mode,
+      resolve_options);
+}
+
+void CapturingOpTester::Run(
+    onnxruntime::SessionOptions session_options,
+    ExpectResult expect_result,
+    const std::string& expected_failure_string,
+    const std::unordered_set<std::string>& excluded_provider_types,
+    const onnxruntime::RunOptions* run_options,
+    std::vector<std::unique_ptr<onnxruntime::IExecutionProvider>>* execution_providers,
+    const onnxruntime::Graph::ResolveOptions& resolve_options,
+    size_t* number_of_pre_packed_weights_counter,
+    size_t* number_of_shared_pre_packed_weights_counter) {
+  CaptureSnapshot(true);
+  onnxruntime::test::OpTester::Run(
+      std::move(session_options),
+      expect_result,
+      expected_failure_string,
+      excluded_provider_types,
+      run_options,
+      execution_providers,
+      resolve_options,
+      number_of_pre_packed_weights_counter,
+      number_of_shared_pre_packed_weights_counter);
+}
+
+void CapturingOpTester::RunWithConfig(
+    size_t* number_of_pre_packed_weights_counter,
+    size_t* number_of_shared_pre_packed_weights_counter) {
+  CaptureSnapshot(true);
+  onnxruntime::test::OpTester::RunWithConfig(
+      number_of_pre_packed_weights_counter,
+      number_of_shared_pre_packed_weights_counter);
+}
+
+void CapturingOpTester::CaptureSnapshot(bool saw_run_call) {
+  CaptureCollector::Instance().AddRecord(BuildRecordFromTester(*this, saw_run_call, capture_count_));
+  ++capture_count_;
+}
+
+}  // namespace emx::ort_runtime
