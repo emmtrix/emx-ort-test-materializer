@@ -4,3 +4,4 @@
 onnx
 onnxruntime==1.25.0
 numpy
+pytest
