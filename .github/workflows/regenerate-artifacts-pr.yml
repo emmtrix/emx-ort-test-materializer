@@ -25,6 +25,8 @@ jobs:
       PUSH_REF: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
       CMAKE_C_COMPILER_LAUNCHER: ccache
       CMAKE_CXX_COMPILER_LAUNCHER: ccache
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
+      CCACHE_MAXSIZE: 2G
 
     steps:
       - name: Check out target branch
@@ -48,10 +50,11 @@ jobs:
       - name: Cache ccache objects
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ccache
+          path: ${{ github.workspace }}/.ccache
           key: ccache-${{ runner.os }}-${{ hashFiles('cpp/**') }}
           restore-keys: |
             ccache-${{ runner.os }}-
+          save-always: true
 
       - name: Install Python dependencies
         run: |
@@ -68,6 +71,7 @@ jobs:
           python scripts/extract_test_artifacts.py --artifacts-output artifacts --rebuild
 
       - name: Show ccache statistics
+        if: always()
         run: ccache -s
 
       - name: Update validation expectations
