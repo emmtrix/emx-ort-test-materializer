@@ -45,10 +45,17 @@ target_compile_definitions(
   ort_cpp_test_runtime_extractor
   PRIVATE
     _USE_MATH_DEFINES
-    NOMINMAX
     ORT_ENABLE_STREAM
-    WIN32_LEAN_AND_MEAN
 )
+
+if(WIN32)
+  target_compile_definitions(
+    ort_cpp_test_runtime_extractor
+    PRIVATE
+      NOMINMAX
+      WIN32_LEAN_AND_MEAN
+  )
+endif()
 
 if(MSVC)
   target_compile_options(ort_cpp_test_runtime_extractor PRIVATE /MP /utf-8)

@@ -9,15 +9,15 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_lstm_op_test/ForwardLstmWithBahdanauAM_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_lstm_op_test/ForwardLstmWithBahdanauAMShortenSeqLength_run0",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_lstm_op_test/ForwardLstmWithBahdanauAMZeroAttention_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_lstm_op_test/ForwardLstmWithBahdanauAM_run0",
       "expected_result": "OK"
     },
     {
@@ -30,22 +30,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/Attention3DMask_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/Attention_Mask1D_Fp32_B2_S64_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/Attention_Mask2D_Fp32_B2_S32_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch1_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch1_run1",
       "expected_result": "OK"
     },
     {
@@ -73,11 +57,11 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch2_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch1_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch2_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch1_run1",
       "expected_result": "OK"
     },
     {
@@ -110,6 +94,14 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch2MaskIndex2_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch2_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionBatch2_run1",
       "expected_result": "OK"
     },
     {
@@ -201,15 +193,19 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastState_dynamic_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastStateBatch1_run0",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastStateBatch1_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastStateBatch2WithPadding_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastStateBatch2WithPadding_run1",
       "expected_result": "OK"
     },
     {
@@ -221,11 +217,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastStateBatch2WithPadding_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastStateBatch2WithPadding_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionPastState_dynamic_run0",
       "expected_result": "OK"
     },
     {
@@ -253,14 +245,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionUnidirectional_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionUnidirectional_run1",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionUnidirectionalAttentionMask_run0",
       "expected_result": "OK"
     },
@@ -269,11 +253,27 @@
       "expected_result": "OK"
     },
     {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionUnidirectional_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionUnidirectional_run1",
+      "expected_result": "OK"
+    },
+    {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionWithNormFactor_run0",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/AttentionWithNormFactor_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/Attention_Mask1D_Fp32_B2_S64_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/attention_op_test/Attention_Mask2D_Fp32_B2_S32_run0",
       "expected_result": "OK"
     },
     {
@@ -573,11 +573,11 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/element_wise_ops_test/Affine_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/element_wise_ops_test/AffineDefaultAttributes_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/element_wise_ops_test/AffineDefaultAttributes_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/element_wise_ops_test/Affine_run0",
       "expected_result": "OK"
     },
     {
@@ -621,11 +621,11 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/embed_layer_norm_op_test/EmbedLayerNormBatch1_PositionIds_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/embed_layer_norm_op_test/EmbedLayerNormBatch1_PositionIdsDiffOrder_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/embed_layer_norm_op_test/EmbedLayerNormBatch1_PositionIdsDiffOrder_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/embed_layer_norm_op_test/EmbedLayerNormBatch1_PositionIds_run0",
       "expected_result": "OK"
     },
     {
@@ -1065,54 +1065,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run10",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run11",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run6",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run7",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run8",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run9",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeAB_run0",
       "expected_result": "OK"
     },
@@ -1206,6 +1158,54 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeAB_run9",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run10",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run11",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run6",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run7",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run8",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/fused_matmul_op_test/FloatTypeTransposeA_run9",
       "expected_result": "OK"
     },
     {
@@ -2473,10 +2473,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_4D_OuterInnerBroadcast_Axis3_run0",
       "expected_result": "OK"
     },
@@ -2513,10 +2509,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16Input_run0",
-      "expected_result": "[ONNXRuntimeError] : 1 : FAIL : Node () Op (Flatten) [ShapeInferenceError] Invalid value(-1) for attribute 'axis'"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16InputScaleBiasOutput_Initializers_run0",
       "expected_result": "OK"
     },
@@ -2527,6 +2519,10 @@
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16InputScaleBiasOutput_run1",
       "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16Input_run0",
+      "expected_result": "[ONNXRuntimeError] : 1 : FAIL : Node () Op (Flatten) [ShapeInferenceError] Invalid value(-1) for attribute 'axis'"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16ScaleBiasOutput_run0",
@@ -2545,10 +2541,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Scalar_Axis2_run0",
       "expected_result": "OK"
     },
@@ -2557,12 +2549,12 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Broadcast_Inner_Mixed_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16Input_run0",
-      "expected_result": "[ONNXRuntimeError] : 1 : FAIL : Node () Op (Flatten) [ShapeInferenceError] Invalid value(-1) for attribute 'axis'"
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Broadcast_Inner_Mixed_run0",
+      "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16InputScaleOutput_Initializers_run0",
@@ -2573,12 +2565,12 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16ScaleOutput_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16Input_run0",
       "expected_result": "[ONNXRuntimeError] : 1 : FAIL : Node () Op (Flatten) [ShapeInferenceError] Invalid value(-1) for attribute 'axis'"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_run0",
-      "expected_result": "OK"
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16ScaleOutput_run0",
+      "expected_result": "[ONNXRuntimeError] : 1 : FAIL : Node () Op (Flatten) [ShapeInferenceError] Invalid value(-1) for attribute 'axis'"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Scalar_NoBias_Axis2_run0",
@@ -2589,7 +2581,15 @@
       "expected_result": "OK"
     },
     {
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_run0",
+      "expected_result": "OK"
+    },
+    {
       "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_ValidScaleBias_Broadcast_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_run0",
       "expected_result": "OK"
     },
     {
@@ -6337,6 +6337,14 @@
       "expected_result": "[ONNXRuntimeError] : 10 : INVALID_GRAPH : Load model from D:/emmtrix/git/emx-ort-test-materializer/artifacts/onnxruntime/test/contrib_ops/moe_test/QMoETest_CPU_RouterWeights_run1/model.onnx failed:This is an invalid model. In Node, (\"node1\", QMoE, \"com.microsoft\", -1) : (\"input\": tensor(float16),\"router_probs\": tensor(float16),\"fc1_experts_weights\": tensor(uint8),\"fc1_scales\": tensor(float),\"\",\"fc2_experts_weights\": tensor(uint8),\"fc2_scales\": tensor(float),\"fc2_experts_bias\": tensor(float16),\"\",\"\",\"\",\"\",\"\",\"\",\"router_weights\": tensor(float16),) -> (\"output\": tensor(float16),) , Error Node(node1) with schema(com.microsoft::QMoE:1) has input size 15 not in range [min=7, max=14]."
     },
     {
+      "path": "artifacts/onnxruntime/test/contrib_ops/multihead_attention_op_test/CrossAttentionWithPast_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/multihead_attention_op_test/CrossAttentionWithPast_run1",
+      "expected_result": "OK"
+    },
+    {
       "path": "artifacts/onnxruntime/test/contrib_ops/multihead_attention_op_test/CrossAttention_Batch1_HeadSize16_run0",
       "expected_result": "OK"
     },
@@ -6417,14 +6425,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/multihead_attention_op_test/CrossAttentionWithPast_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/multihead_attention_op_test/CrossAttentionWithPast_run1",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/multihead_attention_op_test/SelfAttention_WithPastAndPresent_NoMask_NoRelPosBias_run0",
       "expected_result": "OK"
     },
@@ -6465,11 +6465,11 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/NonZeroSeed_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/NonZeroSeedUIntResult_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/NonZeroSeedUIntResult_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/NonZeroSeed_run0",
       "expected_result": "OK"
     },
     {
@@ -6493,10 +6493,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/ZeroSeed_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/ZeroSeedDoubleResult_run0",
       "expected_result": "OK"
     },
@@ -6517,379 +6513,11 @@
       "expected_result": "OK"
     },
     {
+      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/ZeroSeed_run0",
+      "expected_result": "OK"
+    },
+    {
       "path": "artifacts/onnxruntime/test/contrib_ops/ngram_repeat_block_op_test/NGramSize_3_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run10",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run11",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run12",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run13",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run14",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run15",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run16",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run17",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run18",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run19",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run20",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run21",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run22",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run23",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run24",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run25",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run26",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run27",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run28",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run29",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run30",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run31",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run32",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run33",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run34",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run35",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run36",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run37",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run38",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run39",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run40",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run41",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run42",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run43",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run44",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run45",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run46",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run47",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run48",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run49",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run50",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run51",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run52",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run53",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run54",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run55",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run56",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run57",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run58",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run59",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run6",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run60",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run61",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run62",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run63",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run64",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run65",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run66",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run67",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run68",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run69",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run7",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run70",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run71",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run72",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run73",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run74",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run75",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run76",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run77",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run78",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run79",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run8",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run80",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run81",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run82",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run83",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run84",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run85",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run86",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run87",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run88",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run89",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run9",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run90",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run91",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run92",
       "expected_result": "OK"
     },
     {
@@ -7265,375 +6893,375 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run10",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run10",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run11",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run11",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run12",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run12",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run13",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run13",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run14",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run14",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run15",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run15",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run16",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run16",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run17",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run17",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run18",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run18",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run19",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run19",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run2",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run2",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run20",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run20",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run21",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run21",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run22",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run22",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run23",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run23",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run24",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run24",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run25",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run25",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run26",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run26",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run27",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run27",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run28",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run28",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run29",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run29",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run3",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run3",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run30",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run30",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run31",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run31",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run32",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run32",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run33",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run33",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run34",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run34",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run35",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run35",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run36",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run36",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run37",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run37",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run38",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run38",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run39",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run39",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run4",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run4",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run40",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run40",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run41",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run41",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run42",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run42",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run43",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run43",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run44",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run44",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run45",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run45",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run46",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run46",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run47",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run47",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run48",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run48",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run49",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run49",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run5",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run5",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run50",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run50",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run51",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run51",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run52",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run52",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run53",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run53",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run54",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run54",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run55",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run55",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run56",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run56",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run57",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run57",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run58",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run58",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run59",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run59",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run6",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run6",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run60",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run60",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run61",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run61",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run62",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run62",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run63",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run63",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run64",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run64",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run65",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run65",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run66",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run66",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run67",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run67",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run68",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run68",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run69",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run69",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run7",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run7",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run70",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run70",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run71",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run71",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run72",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run72",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run73",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run73",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run74",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run74",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run75",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run75",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run76",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run76",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run77",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run77",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run78",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run78",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run79",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run79",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run8",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run8",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run80",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run80",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run81",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run81",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run82",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run82",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run83",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run83",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run84",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run84",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run85",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run85",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run86",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run86",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run87",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run87",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run88",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run88",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run89",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run89",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run9",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run9",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run90",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run90",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run91",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run91",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run92",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool1D_run92",
       "expected_result": "OK"
     },
     {
@@ -8009,375 +7637,375 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run10",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run10",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run11",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run11",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run12",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run12",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run13",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run13",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run14",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run14",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run15",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run15",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run16",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run16",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run17",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run17",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run18",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run18",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run19",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run19",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run2",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run2",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run20",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run20",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run21",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run21",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run22",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run22",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run23",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run23",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run24",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run24",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run25",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run25",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run26",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run26",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run27",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run27",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run28",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run28",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run29",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run29",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run3",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run3",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run30",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run30",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run31",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run31",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run32",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run32",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run33",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run33",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run34",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run34",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run35",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run35",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run36",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run36",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run37",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run37",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run38",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run38",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run39",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run39",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run4",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run4",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run40",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run40",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run41",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run41",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run42",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run42",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run43",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run43",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run44",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run44",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run45",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run45",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run46",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run46",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run47",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run47",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run48",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run48",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run49",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run49",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run5",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run5",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run50",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run50",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run51",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run51",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run52",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run52",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run53",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run53",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run54",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run54",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run55",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run55",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run56",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run56",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run57",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run57",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run58",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run58",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run59",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run59",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run6",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run6",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run60",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run60",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run61",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run61",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run62",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run62",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run63",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run63",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run64",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run64",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run65",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run65",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run66",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run66",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run67",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run67",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run68",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run68",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run69",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run69",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run7",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run7",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run70",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run70",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run71",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run71",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run72",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run72",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run73",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run73",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run74",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run74",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run75",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run75",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run76",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run76",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run77",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run77",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run78",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run78",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run79",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run79",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run8",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run8",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run80",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run80",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run81",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run81",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run82",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run82",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run83",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run83",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run84",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run84",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run85",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run85",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run86",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run86",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run87",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run87",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run88",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run88",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run89",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run89",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run9",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run9",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run90",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run90",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run91",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run91",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run92",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool2D_run92",
       "expected_result": "OK"
     },
     {
@@ -8753,7 +8381,375 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPoolDilations_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run10",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run11",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run12",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run13",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run14",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run15",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run16",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run17",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run18",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run19",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run20",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run21",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run22",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run23",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run24",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run25",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run26",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run27",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run28",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run29",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run30",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run31",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run32",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run33",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run34",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run35",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run36",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run37",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run38",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run39",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run40",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run41",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run42",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run43",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run44",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run45",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run46",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run47",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run48",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run49",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run50",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run51",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run52",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run53",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run54",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run55",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run56",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run57",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run58",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run59",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run6",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run60",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run61",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run62",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run63",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run64",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run65",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run66",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run67",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run68",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run69",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run7",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run70",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run71",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run72",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run73",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run74",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run75",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run76",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run77",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run78",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run79",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run8",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run80",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run81",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run82",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run83",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run84",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run85",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run86",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run87",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run88",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run89",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run9",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run90",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run91",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPool3D_run92",
       "expected_result": "OK"
     },
     {
@@ -8761,11 +8757,15 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPoolStrides_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPoolDilations_run0",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPoolStrides_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/nhwc_maxpool_op_test/MaxPoolStrides_run0",
       "expected_result": "OK"
     },
     {
@@ -9249,15 +9249,11 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x32x32x1_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x32x32x1_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x7x7x255_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x32x32x1_run0",
       "expected_result": "OK"
     },
     {
@@ -9265,7 +9261,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x7x7x256_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x7x7x255_run0",
       "expected_result": "OK"
     },
     {
@@ -9273,7 +9269,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x8x8x255_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x7x7x256_run0",
       "expected_result": "OK"
     },
     {
@@ -9281,7 +9277,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x8x8x256_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x8x8x255_run0",
       "expected_result": "OK"
     },
     {
@@ -9289,7 +9285,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x7x7x255_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_1x8x8x256_run0",
       "expected_result": "OK"
     },
     {
@@ -9297,7 +9293,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x7x7x256_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x7x7x255_run0",
       "expected_result": "OK"
     },
     {
@@ -9305,7 +9301,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x8x8x255_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x7x7x256_run0",
       "expected_result": "OK"
     },
     {
@@ -9313,7 +9309,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x8x8x256_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x8x8x255_run0",
       "expected_result": "OK"
     },
     {
@@ -9321,7 +9317,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x1x32x32_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nchw_3x8x8x256_run0",
       "expected_result": "OK"
     },
     {
@@ -9329,7 +9325,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x255x7x7_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x1x32x32_run0",
       "expected_result": "OK"
     },
     {
@@ -9337,7 +9333,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x255x8x8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x255x7x7_run0",
       "expected_result": "OK"
     },
     {
@@ -9345,7 +9341,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x256x7x7_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x255x8x8_run0",
       "expected_result": "OK"
     },
     {
@@ -9353,7 +9349,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x256x8x8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x256x7x7_run0",
       "expected_result": "OK"
     },
     {
@@ -9361,7 +9357,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x255x7x7_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_1x256x8x8_run0",
       "expected_result": "OK"
     },
     {
@@ -9369,7 +9365,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x255x8x8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x255x7x7_run0",
       "expected_result": "OK"
     },
     {
@@ -9377,7 +9373,7 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x256x7x7_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x255x8x8_run0",
       "expected_result": "OK"
     },
     {
@@ -9385,11 +9381,15 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x256x8x8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x256x7x7_run0",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x256x8x8_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_global_average_pool_test/Nhwc_3x256x8x8_run0",
       "expected_result": "OK"
     },
     {
@@ -9449,11 +9449,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_S8_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9469,23 +9481,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_ExcludePadPixel_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9501,23 +9513,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool1D_IncludePadPixel_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9533,23 +9545,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_BigImage_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9565,23 +9577,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_ExcludePadPixel_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9597,23 +9609,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_Global_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9629,23 +9641,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_IncludePadPixel_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9661,23 +9673,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool2D_MultiChannel_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9693,23 +9705,23 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_S8_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_S8_run0",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_S8_run1",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_S8_run1",
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_ExcludePadPixel_S8_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_nhwc_run0",
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_nhwc_S8_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_nhwc_run0",
       "expected_result": "OK"
     },
     {
@@ -9722,18 +9734,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_S8_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_S8_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_pool_test/AveragePool3D_IncludePadPixel_S8_run2",
       "expected_result": "OK"
     },
     {
@@ -12569,6 +12569,10 @@
       "expected_result": "OK"
     },
     {
+      "path": "artifacts/onnxruntime/test/contrib_ops/quantize_ops_test/DequantizeLinearOpTest_BroadcastTensorOfOne_run0",
+      "expected_result": "OK"
+    },
+    {
       "path": "artifacts/onnxruntime/test/contrib_ops/quantize_ops_test/DequantizeLinear_0_run0",
       "expected_result": "OK"
     },
@@ -12606,10 +12610,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/quantize_ops_test/DequantizeLinear_per_tensor_float_uint8_use_initializer_except_x_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/quantize_ops_test/DequantizeLinearOpTest_BroadcastTensorOfOne_run0",
       "expected_result": "OK"
     },
     {
@@ -12741,14 +12741,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/skiplayernorm_op_test/SkipLayerNormBatch2_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/skiplayernorm_op_test/SkipLayerNormBatch2_run1",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/skiplayernorm_op_test/SkipLayerNormBatch2_Skip_Broadcast_Batch_Size_1_run0",
       "expected_result": "OK"
     },
@@ -12762,6 +12754,14 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/skiplayernorm_op_test/SkipLayerNormBatch2_TokenCount_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/skiplayernorm_op_test/SkipLayerNormBatch2_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/skiplayernorm_op_test/SkipLayerNormBatch2_run1",
       "expected_result": "OK"
     },
     {
@@ -12810,18 +12810,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/tensor_op_test/NormalDim_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/Tokenizer_EmptyInput_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/Tokenizer_EmptyInput_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/Tokenizer_EmptyInput_run2",
       "expected_result": "OK"
     },
     {
@@ -12881,10 +12869,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/TokenizerWithSeparators_MixCharsNoMarkersSeparatorsOverlapingMatchC_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/TokenizerWithSeparators_MixCharsNoMarkersSeparatorsOverlapLongFirstC_run0",
       "expected_result": "OK"
     },
@@ -12894,6 +12878,10 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/TokenizerWithSeparators_MixCharsNoMarkersSeparatorsOverlapShortFirstC_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/TokenizerWithSeparators_MixCharsNoMarkersSeparatorsOverlapingMatchC_run0",
       "expected_result": "OK"
     },
     {
@@ -12922,6 +12910,18 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/TokenizerWithSeparators_MixCharsWithMarkersStartMatchC_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/Tokenizer_EmptyInput_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/Tokenizer_EmptyInput_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime/test/contrib_ops/tokenizer_test/Tokenizer_EmptyInput_run2",
       "expected_result": "OK"
     },
     {

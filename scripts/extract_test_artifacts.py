@@ -25,8 +25,12 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parent.parent
 
 
-def detect_visual_studio_cmake() -> Path:
-    """Locate a CMake binary that satisfies ONNX Runtime's minimum version."""
+def detect_cmake_binary() -> Path:
+    """Locate a usable CMake binary for the current host platform."""
+    cmake_on_path = shutil.which("cmake")
+    if cmake_on_path:
+        return Path(cmake_on_path)
+
     candidates = [
         Path(
             r"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
@@ -44,7 +48,7 @@ def detect_visual_studio_cmake() -> Path:
             return candidate
 
     raise FileNotFoundError(
-        "Unable to locate Visual Studio CMake (3.28+) required for the runtime extractor."
+        "Unable to locate a CMake binary required for the runtime extractor."
     )
 
 
@@ -94,11 +98,20 @@ def configure_runtime_extractor(cmake_binary: Path, build_dir: Path) -> None:
         str(repo_root() / "cpp" / "runtime_extractor"),
         "-B",
         str(build_dir),
-        "-G",
-        "Visual Studio 17 2022",
-        "-A",
-        "x64",
     ]
+    if os.name == "nt":
+        command.extend(
+            [
+                "-G",
+                "Visual Studio 17 2022",
+                "-A",
+                "x64",
+            ]
+        )
+    else:
+        if shutil.which("ninja"):
+            command.extend(["-G", "Ninja"])
+        command.append("-DCMAKE_BUILD_TYPE=RelWithDebInfo")
     subprocess.run(command, check=True)
 
 
@@ -150,17 +163,28 @@ def write_runtime_capture_config(
 
 def build_runtime_extractor(cmake_binary: Path, build_dir: Path) -> Path:
     """Build the runtime extractor target and return the executable path."""
-    command = [
-        str(cmake_binary),
-        "--build",
-        str(build_dir),
-        "--config",
-        "RelWithDebInfo",
-        "--target",
-        "ort_cpp_test_runtime_extractor",
-    ]
+    command = [str(cmake_binary), "--build", str(build_dir), "--target", "ort_cpp_test_runtime_extractor"]
+    if os.name == "nt":
+        command.extend(["--config", "RelWithDebInfo"])
     subprocess.run(command, check=True)
-    return build_dir / "RelWithDebInfo" / "ort_cpp_test_runtime_extractor.exe"
+
+    candidates = []
+    if os.name == "nt":
+        candidates.append(build_dir / "RelWithDebInfo" / "ort_cpp_test_runtime_extractor.exe")
+    else:
+        candidates.append(build_dir / "ort_cpp_test_runtime_extractor")
+
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
+    fallback = next(build_dir.rglob("ort_cpp_test_runtime_extractor*"), None)
+    if fallback is not None:
+        return fallback
+
+    raise FileNotFoundError(
+        f"Unable to locate the built runtime extractor under {build_dir.resolve()}"
+    )
 
 
 def run_runtime_extractor(
@@ -238,7 +262,7 @@ def run_runtime_pipeline(
 ) -> None:
     """Configure, build, execute, and merge runtime extraction output."""
     artifacts_output = artifacts_output.resolve()
-    cmake_binary = detect_visual_studio_cmake()
+    cmake_binary = detect_cmake_binary()
     build_dir = repo_root() / "build" / "ort_runtime_extractor"
     temp_output_dir = build_dir / "json"
     source_files = runtime_source_files(source_path)
