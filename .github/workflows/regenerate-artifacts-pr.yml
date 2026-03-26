@@ -64,7 +64,7 @@ jobs:
           path: ${{ env.CCACHE_DIR }}
           key: ccache-${{ github.run_id }}
           restore-keys: |
-            ccache-			# Restore any cache with `ccache-` prefix
+            ccache
 
       # Print cache contents from the restored archive before zeroing per-run counters.
       - name: Reset ccache statistics
