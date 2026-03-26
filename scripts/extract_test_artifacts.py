@@ -300,6 +300,11 @@ def run_runtime_pipeline(
     for index, source_file in enumerate(source_files):
         source_file_relative = relative_to_onnxruntime_org(source_file)
         temp_output = temp_output_dir / f"{index:04d}_{sanitize_filename(source_file_relative)}.json"
+        current_file = index + 1
+        print(
+            f"=== Runtime extractor [{current_file}/{len(source_files)}] {source_file_relative.as_posix()} ===",
+            flush=True,
+        )
 
         try:
             write_runtime_capture_config(build_dir, source_file, source_root_relative)
