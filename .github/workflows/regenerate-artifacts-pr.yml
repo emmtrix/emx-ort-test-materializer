@@ -88,13 +88,6 @@ jobs:
         if: always()
         run: ccache -s
 
-      # Keep exactly one branch-local cache entry by deleting the previous fixed key first.
-      - name: Delete existing branch ccache
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh cache delete "${CCACHE_KEY}" --ref "${CACHE_DELETE_REF}" || true
-
       # Save the warmed cache even when later steps fail.
       - name: Save ccache objects
         if: always()
