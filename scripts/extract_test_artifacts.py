@@ -13,11 +13,14 @@ import argparse
 import json
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 from typing import Iterable
+
+DEFAULT_ORT_TEST_RANDOM_SEED = "1337"
 
 
 def repo_root() -> Path:
@@ -25,8 +28,12 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parent.parent
 
 
-def detect_visual_studio_cmake() -> Path:
-    """Locate a CMake binary that satisfies ONNX Runtime's minimum version."""
+def detect_cmake_binary() -> Path:
+    """Locate a usable CMake binary for the current host platform."""
+    cmake_on_path = shutil.which("cmake")
+    if cmake_on_path:
+        return Path(cmake_on_path)
+
     candidates = [
         Path(
             r"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
@@ -44,7 +51,7 @@ def detect_visual_studio_cmake() -> Path:
             return candidate
 
     raise FileNotFoundError(
-        "Unable to locate Visual Studio CMake (3.28+) required for the runtime extractor."
+        "Unable to locate a CMake binary required for the runtime extractor."
     )
 
 
@@ -86,6 +93,19 @@ def sanitize_filename(path: Path) -> str:
     return "".join(character if character.isalnum() else "_" for character in path.as_posix())
 
 
+def format_command(command: list[str]) -> str:
+    """Return one shell-style string representation for logging."""
+    if os.name == "nt":
+        return subprocess.list2cmdline(command)
+    return shlex.join(command)
+
+
+def run_logged_command(command: list[str], **kwargs: object) -> subprocess.CompletedProcess[bytes]:
+    """Print one external command before executing it."""
+    print(f"> {format_command(command)}", flush=True)
+    return subprocess.run(command, **kwargs)
+
+
 def configure_runtime_extractor(cmake_binary: Path, build_dir: Path) -> None:
     """Configure the runtime extractor build once for the current workspace."""
     command = [
@@ -94,12 +114,21 @@ def configure_runtime_extractor(cmake_binary: Path, build_dir: Path) -> None:
         str(repo_root() / "cpp" / "runtime_extractor"),
         "-B",
         str(build_dir),
-        "-G",
-        "Visual Studio 17 2022",
-        "-A",
-        "x64",
     ]
-    subprocess.run(command, check=True)
+    if os.name == "nt":
+        command.extend(
+            [
+                "-G",
+                "Visual Studio 17 2022",
+                "-A",
+                "x64",
+            ]
+        )
+    else:
+        if shutil.which("ninja"):
+            command.extend(["-G", "Ninja"])
+        command.append("-DCMAKE_BUILD_TYPE=RelWithDebInfo")
+    run_logged_command(command, check=True)
 
 
 def write_runtime_capture_config(
@@ -150,17 +179,28 @@ def write_runtime_capture_config(
 
 def build_runtime_extractor(cmake_binary: Path, build_dir: Path) -> Path:
     """Build the runtime extractor target and return the executable path."""
-    command = [
-        str(cmake_binary),
-        "--build",
-        str(build_dir),
-        "--config",
-        "RelWithDebInfo",
-        "--target",
-        "ort_cpp_test_runtime_extractor",
-    ]
-    subprocess.run(command, check=True)
-    return build_dir / "RelWithDebInfo" / "ort_cpp_test_runtime_extractor.exe"
+    command = [str(cmake_binary), "--build", str(build_dir), "--target", "ort_cpp_test_runtime_extractor"]
+    if os.name == "nt":
+        command.extend(["--config", "RelWithDebInfo"])
+    run_logged_command(command, check=True)
+
+    candidates = []
+    if os.name == "nt":
+        candidates.append(build_dir / "RelWithDebInfo" / "ort_cpp_test_runtime_extractor.exe")
+    else:
+        candidates.append(build_dir / "ort_cpp_test_runtime_extractor")
+
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
+    fallback = next(build_dir.rglob("ort_cpp_test_runtime_extractor*"), None)
+    if fallback is not None:
+        return fallback
+
+    raise FileNotFoundError(
+        f"Unable to locate the built runtime extractor under {build_dir.resolve()}"
+    )
 
 
 def run_runtime_extractor(
@@ -172,6 +212,10 @@ def run_runtime_extractor(
 ) -> subprocess.CompletedProcess[bytes]:
     """Execute the runtime extractor for one compiled C++ test source file."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    runtime_env = os.environ.copy()
+    # ORT unit tests may generate inputs via RandomValueGenerator with a time-based
+    # default seed, which would churn serialized TensorProto artifacts across runs.
+    runtime_env.setdefault("ORT_TEST_RANDOM_SEED_VALUE", DEFAULT_ORT_TEST_RANDOM_SEED)
 
     command = [
         str(extractor_binary),
@@ -184,11 +228,12 @@ def run_runtime_extractor(
     if gtest_filter:
         command.append(f"--gtest_filter={gtest_filter}")
 
-    return subprocess.run(
+    return run_logged_command(
         command,
         check=False,
         cwd=ort_test_root(),
         capture_output=True,
+        env=runtime_env,
     )
 
 
@@ -238,7 +283,7 @@ def run_runtime_pipeline(
 ) -> None:
     """Configure, build, execute, and merge runtime extraction output."""
     artifacts_output = artifacts_output.resolve()
-    cmake_binary = detect_visual_studio_cmake()
+    cmake_binary = detect_cmake_binary()
     build_dir = repo_root() / "build" / "ort_runtime_extractor"
     temp_output_dir = build_dir / "json"
     source_files = runtime_source_files(source_path)
@@ -262,6 +307,11 @@ def run_runtime_pipeline(
     for index, source_file in enumerate(source_files):
         source_file_relative = relative_to_onnxruntime_org(source_file)
         temp_output = temp_output_dir / f"{index:04d}_{sanitize_filename(source_file_relative)}.json"
+        current_file = index + 1
+        print(
+            f"=== Runtime extractor [{current_file}/{len(source_files)}] {source_file_relative.as_posix()} ===",
+            flush=True,
+        )
 
         try:
             write_runtime_capture_config(build_dir, source_file, source_root_relative)

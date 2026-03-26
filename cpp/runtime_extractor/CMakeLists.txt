@@ -45,10 +45,30 @@ target_compile_definitions(
   ort_cpp_test_runtime_extractor
   PRIVATE
     _USE_MATH_DEFINES
-    NOMINMAX
     ORT_ENABLE_STREAM
-    WIN32_LEAN_AND_MEAN
 )
+
+if(onnxruntime_DISABLE_RTTI)
+  target_compile_definitions(
+    ort_cpp_test_runtime_extractor
+    PRIVATE
+      ORT_NO_RTTI
+  )
+  target_compile_options(
+    ort_cpp_test_runtime_extractor
+    PRIVATE
+      "$<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>"
+  )
+endif()
+
+if(WIN32)
+  target_compile_definitions(
+    ort_cpp_test_runtime_extractor
+    PRIVATE
+      NOMINMAX
+      WIN32_LEAN_AND_MEAN
+  )
+endif()
 
 if(MSVC)
   target_compile_options(ort_cpp_test_runtime_extractor PRIVATE /MP /utf-8)
@@ -57,16 +77,17 @@ endif()
 target_link_libraries(
   ort_cpp_test_runtime_extractor
   PRIVATE
-    onnxruntime_common
-    onnxruntime_framework
-    onnxruntime_graph
-    onnxruntime_lora
-    onnxruntime_mlas
+    onnxruntime_unittest_utils
+    onnxruntime_session
     onnxruntime_optimizer
     onnxruntime_providers
-    onnxruntime_session
-    onnxruntime_unittest_utils
     onnxruntime_util
+    onnxruntime_lora
+    onnxruntime_framework
+    onnxruntime_graph
+    onnxruntime_mlas
+    onnxruntime_common
+    onnxruntime_flatbuffers
     GTest::gtest
     GTest::gmock
 )

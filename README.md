@@ -47,7 +47,7 @@ installation or a full build.
 - This is **not** a distributable Python package.
 - It does **not** run the full ORT test-suite.
 - It does **not** modify ONNX Runtime source code or the bundled submodule.
-- It does **not** provide CI or automated publishing.
+- It does **not** provide release automation or package publishing.
 
 ---
 
