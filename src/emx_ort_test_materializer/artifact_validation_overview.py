@@ -7,6 +7,10 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from emx_ort_test_materializer.ignored_artifact_cases import (
+    IgnoredArtifactCase,
+    artifact_case_display_path,
+)
 
 DOCS_REGEN_COMMAND = (
     "UPDATE_REFS=1 pytest -q tests/test_artifact_validation_docs.py::test_artifact_validation_error_doc"
@@ -36,6 +40,11 @@ def source_label(case_path: str) -> str:
     """Return the source-style grouping label for one artifact case path."""
     path = Path(case_path)
     return path.parent.as_posix()
+
+
+def ignored_case_source_label(case: IgnoredArtifactCase) -> str:
+    """Return the source-style grouping label for one ignored artifact case."""
+    return source_label(artifact_case_display_path(case.path))
 
 
 def summarize_error(result: str) -> str:
@@ -69,6 +78,7 @@ def render_overview_markdown(
     *,
     repo_root: Path,
     expectations_path: Path,
+    ignored_cases: tuple[IgnoredArtifactCase, ...] = (),
 ) -> str:
     """Render the Markdown overview from expectation entries."""
     failing_cases = [case for case in cases if not is_success_result(case["expected_result"])]
@@ -92,10 +102,22 @@ def render_overview_markdown(
         f"Expectation source: `{expectations_path.relative_to(repo_root).as_posix()}`",
         "",
         f"Validated cases: {success_count} / {len(cases)} OK, {len(failing_cases)} non-OK.",
-        "",
-        "| Error message | Count | Sources |",
-        "| --- | --- | --- |",
     ]
+    if ignored_cases:
+        lines.extend(
+            [
+                "",
+                f"Ignored artifact generation cases: {len(ignored_cases)}.",
+            ]
+        )
+
+    lines.extend(
+        [
+            "",
+            "| Error message | Count | Sources |",
+            "| --- | --- | --- |",
+        ]
+    )
 
     for error, count in sorted(error_counts.items(), key=lambda item: (-item[1], item[0])):
         sources = ", ".join(sorted(error_sources.get(error, set())))
@@ -138,6 +160,27 @@ def render_overview_markdown(
             f"{escape_markdown_cell(source_label(case['path']))} | "
             f"{escape_markdown_cell(case['expected_result'])} |"
         )
+
+    if ignored_cases:
+        lines.extend(
+            [
+                "",
+                "## Ignored Artifact Generation Cases",
+                "",
+                "Lists configured artifact cases that generation skips, together with the tracked reason.",
+                "",
+                "| Case | Source | Reason |",
+                "| --- | --- | --- |",
+            ]
+        )
+        for case in ignored_cases:
+            display_path = artifact_case_display_path(case.path)
+            lines.append(
+                "| "
+                f"{escape_markdown_cell(display_path)} | "
+                f"{escape_markdown_cell(ignored_case_source_label(case))} | "
+                f"{escape_markdown_cell(case.reason)} |"
+            )
 
     lines.append("")
     return "\n".join(lines)

@@ -72,3 +72,50 @@ def test_parse_version_tuple_reads_cmake_versions() -> None:
     module = load_script_module()
     assert module.parse_version_tuple("cmake version 3.28.3") == (3, 28, 3)
     assert module.parse_version_tuple("invalid") is None
+
+
+def test_filter_ignored_runtime_artifact_cases_removes_records_and_directories(
+    tmp_path: Path,
+) -> None:
+    """Delete configured ignored artifact directories from generated runtime output."""
+    module = load_script_module()
+
+    kept_dir = tmp_path / "onnxruntime" / "test" / "suite" / "Keep_run0"
+    ignored_dir = tmp_path / "onnxruntime" / "test" / "suite" / "Ignore_run0"
+    kept_dir.mkdir(parents=True)
+    ignored_dir.mkdir(parents=True)
+
+    runtime_chunks = [
+        {
+            "records": [
+                {"artifact_directory": "onnxruntime/test/suite/Keep_run0"},
+                {"artifact_directory": "onnxruntime/test/suite/Ignore_run0"},
+            ]
+        }
+    ]
+
+    ignored_cases = (
+        module.IgnoredArtifactCase(
+            path="onnxruntime/test/suite/Ignore_run0",
+            reason="Ignored for a tracked reason.",
+        ),
+    )
+
+    filtered_chunks, ignored_count = module.filter_ignored_runtime_artifact_cases(
+        runtime_chunks,
+        tmp_path,
+        ignored_cases,
+    )
+
+    assert ignored_count == 1
+    assert filtered_chunks == [
+        {
+            "records": [{"artifact_directory": "onnxruntime/test/suite/Keep_run0"}],
+            "warnings": [
+                "Ignored generated artifact case onnxruntime/test/suite/Ignore_run0: "
+                "Ignored for a tracked reason."
+            ],
+        }
+    ]
+    assert kept_dir.exists()
+    assert not ignored_dir.exists()

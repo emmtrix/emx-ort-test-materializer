@@ -68,6 +68,17 @@ tests and expanding from there.
    responsibility before any implementation is added.
 5. The `artifacts/` directory must remain tracked by git (never add it to
    `.gitignore`).
+6. Preserve layering strictly:
+   - Generation policy belongs in generation/extraction code.
+   - Validation logic must only validate what exists and must not know
+     generation-time ignore policy.
+   - Reporting/documentation code may format and present configured policy, but
+     must not silently change generation or validation behavior.
+   - Test-runner concerns such as skip classification or local-environment
+     handling must stay outside core domain logic unless the module is
+     explicitly responsible for runner integration.
+   - Shared helper modules must not hard-code repository policy or workspace
+     layout when that responsibility belongs to a script or adapter layer.
 
 ---
 
