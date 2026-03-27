@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT. -->
-<!-- Regenerate with: UPDATE_REFS=1 pytest -q tests/test_artifact_validation_docs.py::test_artifact_validation_error_doc -->
+<!-- Regenerate with: python tools/scripts/generate_artifact_validation_overview.py -->
 
 # ORT artifact validation errors
 
