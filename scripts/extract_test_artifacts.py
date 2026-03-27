@@ -22,6 +22,17 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from emx_ort_test_materializer.ignored_artifact_cases import (
+    IgnoredArtifactCase,
+    ignored_case_reasons_by_path,
+    load_ignored_artifact_cases,
+)
+
 DEFAULT_ORT_TEST_RANDOM_SEED = "1337"
 DEFAULT_MAX_PARALLEL_JOBS = 8
 MINIMUM_CMAKE_VERSION = (3, 28, 0)
@@ -41,7 +52,7 @@ class RuntimeTargetSpec:
 
 def repo_root() -> Path:
     """Return the repository root based on this script location."""
-    return Path(__file__).resolve().parent.parent
+    return REPO_ROOT
 
 
 def detect_cmake_binary() -> Path:
@@ -531,6 +542,47 @@ def run_runtime_targets(
     return merged_chunks, failed_files
 
 
+def filter_ignored_runtime_artifact_cases(
+    runtime_chunks: list[dict],
+    artifacts_output: Path,
+    ignored_cases: tuple[IgnoredArtifactCase, ...],
+) -> tuple[list[dict], int]:
+    """Remove configured ignored artifact cases from runtime output and disk."""
+    if not ignored_cases:
+        return runtime_chunks, 0
+
+    ignored_reasons = ignored_case_reasons_by_path(ignored_cases)
+    filtered_chunks: list[dict] = []
+    ignored_count = 0
+
+    for runtime_chunk in runtime_chunks:
+        filtered_chunk = dict(runtime_chunk)
+        filtered_records = []
+        warnings = list(filtered_chunk.get("warnings", []))
+
+        for record in runtime_chunk.get("records", []):
+            artifact_directory = str(record.get("artifact_directory", "")).strip().strip("/")
+            if artifact_directory not in ignored_reasons:
+                filtered_records.append(record)
+                continue
+
+            ignored_count += 1
+            artifact_path = artifacts_output / artifact_directory
+            if artifact_path.exists():
+                shutil.rmtree(artifact_path)
+            warnings.append(
+                "Ignored generated artifact case "
+                f"{artifact_directory}: {ignored_reasons[artifact_directory]}"
+            )
+
+        filtered_chunk["records"] = filtered_records
+        if warnings:
+            filtered_chunk["warnings"] = warnings
+        filtered_chunks.append(filtered_chunk)
+
+    return filtered_chunks, ignored_count
+
+
 def run_runtime_pipeline(
     source_path: Path,
     output_path: Path,
@@ -576,6 +628,12 @@ def run_runtime_pipeline(
         gtest_filter,
         jobs,
     )
+    ignored_cases = load_ignored_artifact_cases()
+    merged_chunks, ignored_count = filter_ignored_runtime_artifact_cases(
+        merged_chunks,
+        artifacts_output,
+        ignored_cases,
+    )
 
     if not merged_chunks:
         raise RuntimeError("Runtime extractor did not produce any successful per-file outputs.")
@@ -592,6 +650,8 @@ def run_runtime_pipeline(
 
     if failed_files:
         print(f"Runtime extractor skipped {len(failed_files)} source files due to build or execution failures.")
+    if ignored_count:
+        print(f"Runtime extractor ignored {ignored_count} generated artifact case(s) by configuration.")
 
 
 def parse_args() -> argparse.Namespace:

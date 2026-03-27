@@ -16,6 +16,7 @@ from emx_ort_test_materializer.artifact_validation_overview import (
     load_cases,
     render_overview_markdown,
 )
+from emx_ort_test_materializer.ignored_artifact_cases import load_ignored_artifact_cases
 
 
 DEFAULT_EXPECTATIONS_PATH = REPO_ROOT / "tests" / "artifact_validation_expected.json"
@@ -46,10 +47,12 @@ def main() -> int:
     """Generate the Markdown overview file."""
     args = parse_args()
     cases = load_cases(args.expectations)
+    ignored_cases = load_ignored_artifact_cases()
     markdown = render_overview_markdown(
         cases,
         repo_root=REPO_ROOT,
         expectations_path=args.expectations.resolve(),
+        ignored_cases=ignored_cases,
     )
     args.output.write_text(markdown, encoding="utf-8")
     print(args.output)

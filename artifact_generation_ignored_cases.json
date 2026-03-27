@@ -1,0 +1,24 @@
+{
+  "ignored_cases": [
+    {
+      "path": "onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_BFloat16Input_run0",
+      "reason": "Ignored until the runtime artifact pipeline can replay this legacy LayerNormalization bfloat16 case without surfacing a known CPU environment limitation as an artifact failure."
+    },
+    {
+      "path": "onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16Input_run0",
+      "reason": "Ignored until the runtime artifact pipeline preserves a compatible ONNX opset import for legacy mixed-precision LayerNormalization exports."
+    },
+    {
+      "path": "onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Bias_Float16ScaleBiasOutput_run0",
+      "reason": "Ignored until the runtime artifact pipeline preserves a compatible ONNX opset import for legacy mixed-precision LayerNormalization exports."
+    },
+    {
+      "path": "onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16Input_run0",
+      "reason": "Ignored until the runtime artifact pipeline preserves a compatible ONNX opset import for legacy mixed-precision LayerNormalization exports."
+    },
+    {
+      "path": "onnxruntime/test/contrib_ops/layer_norm_op_test/LayerNorm_Scale_Float16ScaleOutput_run0",
+      "reason": "Ignored until the runtime artifact pipeline preserves a compatible ONNX opset import for legacy mixed-precision LayerNormalization exports."
+    }
+  ]
+}

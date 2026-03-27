@@ -174,6 +174,12 @@ writes to `build/ort_runtime_contrib_ops.json`, artifacts are written under
 directory. In directory mode, the extractor now parallelizes both the wrapper
 build step and the per-source test execution via `--jobs`.
 
+Tracked exceptions for generated artifact cases live in
+`artifact_generation_ignored_cases.json`. Each entry names the artifact case
+path relative to `artifacts/` together with the reason it is currently ignored.
+The extraction and validation-overview scripts both use this file, so ignored
+cases are skipped consistently and listed in the generated Markdown overview.
+
 Each artifact directory may also contain a `validation.json` file with replay
 metadata captured from the original ORT test. The file currently uses this
 shape:
