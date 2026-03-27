@@ -7,7 +7,7 @@ Aggregates non-OK artifact validation outcomes.
 
 Expectation source: `tests/artifact_validation_expected.json`
 
-Validated cases: 4182 / 4187 OK, 5 non-OK.
+Validated cases: 4184 / 4189 OK, 5 non-OK.
 
 | Error message | Count | Sources |
 | --- | --- | --- |
