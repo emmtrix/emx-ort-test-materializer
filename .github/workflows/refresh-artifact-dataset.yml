@@ -33,6 +33,7 @@ jobs:
       CMAKE_CXX_COMPILER_LAUNCHER: ccache
       CCACHE_DIR: ${{ github.workspace }}/.ccache
       CCACHE_MAXSIZE: 2G
+      CCACHE_RUN_START_MARKER: ${{ runner.temp }}/ccache-run-start
 
     steps:
       - name: Check out target branch
@@ -66,6 +67,9 @@ jobs:
           ccache -s
           ccache -z
 
+      - name: Mark ccache run start
+        run: touch "${CCACHE_RUN_START_MARKER}"
+
       - name: Install maintainer dependencies
         run: |
           python -m pip install --upgrade pip
@@ -80,13 +84,6 @@ jobs:
       - name: Show ccache statistics
         if: always()
         run: ccache -s
-
-      - name: Save ccache objects
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: ${{ env.CCACHE_DIR }}
-          key: ccache-${{ github.run_id }}
 
       - name: Refresh validation expectations
         if: env.WARM_CCACHE_ONLY != 'true'
@@ -118,3 +115,21 @@ jobs:
       - name: Skip auto-push for fork pull requests
         if: env.WARM_CCACHE_ONLY != 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
         run: echo "Skipping commit and push because this pull request comes from a fork."
+
+      - name: Prune ccache entries not used in this run
+        if: success()
+        run: |
+          for cache_bucket in "${CCACHE_DIR}"/[0-9a-f]; do
+            if [ -d "${cache_bucket}" ]; then
+              find "${cache_bucket}" -type f ! -newer "${CCACHE_RUN_START_MARKER}" -delete
+            fi
+          done
+          ccache -c
+          ccache -s
+
+      - name: Save ccache objects
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: ccache-${{ github.run_id }}
