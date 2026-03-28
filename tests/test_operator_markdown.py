@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 import sys
 from pathlib import Path
@@ -93,11 +94,32 @@ def test_render_operator_markdown_renders_both_tables(tmp_path: Path) -> None:
     case_b_dir.mkdir(parents=True)
     onnx.save(make_single_operator_model("Abs"), case_b_dir / "model.onnx")
     (case_b_dir / "output_0.pb").write_bytes(b"defgh")
+    (case_b_dir / "validation.json").write_text(
+        json.dumps(
+            {
+                "expects_failure": True,
+                "expected_failure_substring": "expected failure",
+                "outputs": [],
+            }
+        ),
+        encoding="utf-8",
+    )
 
     case_c_dir = sample_root / "test" / "suite" / "Relu_run0"
     case_c_dir.mkdir(parents=True)
     onnx.save(make_single_operator_model("Relu"), case_c_dir / "model.onnx")
     (case_c_dir / "input_0.pb").write_bytes(b"ijkl")
+    (case_c_dir / "validation.json").write_text(
+        json.dumps(
+            {
+                "expects_failure": False,
+                "expected_failure_substring": "",
+                "excluded_providers": ["CPU"],
+                "outputs": [],
+            }
+        ),
+        encoding="utf-8",
+    )
 
     case_d_dir = sample_root / "test" / "suite" / "BiasSoftmax_run0"
     case_d_dir.mkdir(parents=True)
@@ -106,9 +128,23 @@ def test_render_operator_markdown_renders_both_tables(tmp_path: Path) -> None:
         case_d_dir / "model.onnx",
     )
     (case_d_dir / "input_0.pb").write_bytes(b"mn")
+    (case_d_dir / "validation.json").write_text(
+        json.dumps(
+            {
+                "expects_failure": False,
+                "expected_failure_substring": "",
+                "included_providers": ["CPU"],
+                "outputs": [],
+            }
+        ),
+        encoding="utf-8",
+    )
 
     cases = load_single_operator_cases(sample_root)
     abs_onnx_bytes = sum(case.onnx_bytes for case in cases if case.operator == "Abs")
+    abs_negative_cases = sum(
+        1 for case in cases if case.operator == "Abs" and case.negative_test_case
+    )
     bias_softmax_onnx_bytes = sum(
         case.onnx_bytes for case in cases if case.operator == "com.microsoft::BiasSoftmax"
     )
@@ -122,21 +158,22 @@ def test_render_operator_markdown_renders_both_tables(tmp_path: Path) -> None:
 
     assert "## Operator counts" in markdown
     assert "## Operator test cases" in markdown
-    assert "| Domain | Operator | Test cases | .onnx bytes | .pb bytes |" in markdown
+    assert "## Positive test cases by engine" in markdown
+    assert "| Domain | Operator | Test cases | Negative test cases | .onnx bytes | .pb bytes |" in markdown
     assert (
         "| ai.onnx | "
         "[Abs](https://onnx.ai/onnx/operators/onnx__Abs.html) "
-        f"| 2 | {abs_onnx_bytes} | 8 |"
+        f"| 2 | {abs_negative_cases} | {abs_onnx_bytes} | 8 |"
     ) in markdown
     assert (
         "| com.microsoft | "
         "[BiasSoftmax](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BiasSoftmax) "
-        f"| 1 | {bias_softmax_onnx_bytes} | 2 |"
+        f"| 1 | 0 | {bias_softmax_onnx_bytes} | 2 |"
     ) in markdown
     assert (
         "| ai.onnx | "
         "[Relu](https://onnx.ai/onnx/operators/onnx__Relu.html) "
-        f"| 1 | {relu_onnx_bytes} | 4 |"
+        f"| 1 | 0 | {relu_onnx_bytes} | 4 |"
     ) in markdown
     assert "test/suite/Abs_run[0-1]" in markdown
     assert (
@@ -153,6 +190,22 @@ def test_render_operator_markdown_renders_both_tables(tmp_path: Path) -> None:
         "| ai.onnx | "
         "[Relu](https://onnx.ai/onnx/operators/onnx__Relu.html) "
         "| test/suite/Relu_run0 |"
+    ) in markdown
+    assert "| Domain | Operator | Total positive test cases | CPU |" in markdown
+    assert (
+        "| ai.onnx | "
+        "[Abs](https://onnx.ai/onnx/operators/onnx__Abs.html) "
+        "| 1 | 1 |"
+    ) in markdown
+    assert (
+        "| com.microsoft | "
+        "[BiasSoftmax](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BiasSoftmax) "
+        "| 1 | 1 |"
+    ) in markdown
+    assert (
+        "| ai.onnx | "
+        "[Relu](https://onnx.ai/onnx/operators/onnx__Relu.html) "
+        "| 1 | 0 :warning: |"
     ) in markdown
 
 

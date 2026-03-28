@@ -11,67 +11,67 @@ Tracked test cases: 4182. Distinct operators: 59.
 
 ## Operator counts
 
-| Domain | Operator | Test cases | .onnx bytes | .pb bytes |
-| --- | --- | --- | --- | --- |
-| ai.onnx | [Affine](https://onnx.ai/onnx/operators/onnx__Affine.html) | 2 | 248 | 108 |
-| com.microsoft | [Attention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Attention) | 65 | 30123 | 22956228 |
-| com.microsoft | [AttnLSTM](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.AttnLSTM) | 6 | 3546 | 6729 |
-| com.microsoft | [BiasGelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BiasGelu) | 6 | 888 | 140252 |
-| com.microsoft | [BifurcationDetector](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BifurcationDetector) | 2 | 718 | 668 |
-| com.microsoft | [CDist](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.CDist) | 3 | 500 | 475 |
-| com.microsoft | [ConvTransposeWithDynamicPads](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.ConvTransposeWithDynamicPads) | 1 | 362 | 306 |
-| ai.onnx | [Crop](https://onnx.ai/onnx/operators/onnx__Crop.html) | 4 | 567 | 538 |
-| com.microsoft | [CropAndResize](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.CropAndResize) | 10 | 3229 | 2194 |
-| com.microsoft | [DecoderMaskedMultiHeadAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DecoderMaskedMultiHeadAttention) | 2 | 1126 | 1063910 |
-| com.microsoft | [DequantizeLinear](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DequantizeLinear) | 11 | 2256 | 1076 |
-| com.microsoft | [DynamicQuantizeLSTM](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicQuantizeLSTM) | 50 | 5860856 | 6826532 |
-| com.microsoft | [DynamicQuantizeMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicQuantizeMatMul) | 39 | 369960 | 437651 |
-| ai.onnx | [DynamicSlice](https://onnx.ai/onnx/operators/onnx__DynamicSlice.html) | 12 | 2342 | 2180 |
-| com.microsoft | [DynamicTimeWarping](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicTimeWarping) | 1 | 162 | 368 |
-| com.microsoft | [EmbedLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.EmbedLayerNormalization) | 10 | 6726 | 2137 |
-| com.microsoft | [ExpandDims](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.ExpandDims) | 11 | 1608 | 746 |
-| com.microsoft | [FastGelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FastGelu) | 3 | 447 | 262 |
-| com.microsoft | [FusedConv](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FusedConv) | 4 | 1373 | 661 |
-| com.microsoft | [FusedMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FusedMatMul) | 192 | 50724 | 27456 |
-| com.microsoft | [GatherBlockQuantized](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.GatherBlockQuantized) | 222 | 81024 | 47531 |
-| com.microsoft | [GridSample](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.GridSample) | 8 | 2014 | 1722 |
-| ai.onnx | [ImageScaler](https://onnx.ai/onnx/operators/onnx__ImageScaler.html) | 1 | 174 | 103 |
-| com.microsoft | [Inverse](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Inverse) | 5 | 640 | 1905 |
-| ai.onnx | [LayerNormalization](https://onnx.ai/onnx/operators/onnx__LayerNormalization.html) | 34 | 8172 | 13417 |
-| com.microsoft | [MatMulBnb4](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulBnb4) | 768 | 13827696 | 46070688 |
-| com.microsoft | [MatMulInteger16](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulInteger16) | 4 | 672 | 244 |
-| com.microsoft | [MatMulIntegerToFloat](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulIntegerToFloat) | 48 | 407508 | 546948 |
-| com.microsoft | [MatMulNBits](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulNBits) | 1042 | 240039149 | 100356328 |
-| com.microsoft | [MaxpoolWithMask](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MaxpoolWithMask) | 1 | 286 | 1595 |
-| ai.onnx | [MeanVarianceNormalization](https://onnx.ai/onnx/operators/onnx__MeanVarianceNormalization.html) | 4 | 860 | 924 |
-| com.microsoft | [MoE](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MoE) | 1 | 491 | 965 |
-| com.microsoft | [MultiHeadAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MultiHeadAttention) | 28 | 11470 | 79264 |
-| com.microsoft | [MurmurHash3](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MurmurHash3) | 17 | 2584 | 467 |
-| com.microsoft | [NGramRepeatBlock](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.NGramRepeatBlock) | 1 | 227 | 296 |
-| com.microsoft | [NhwcMaxPool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.NhwcMaxPool) | 562 | 129260 | 30325532 |
-| com.microsoft | [QAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QAttention) | 24 | 7089692 | 10952280 |
-| com.microsoft | [QEmbedLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QEmbedLayerNormalization) | 12 | 12794 | 2836 |
-| com.microsoft | [QGemm](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QGemm) | 624 | 13033872 | 13253328 |
-| com.microsoft | [QLinearAdd](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearAdd) | 36 | 12716 | 7012 |
-| com.microsoft | [QLinearAveragePool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearAveragePool) | 72 | 31176 | 54496 |
-| com.microsoft | [QLinearConcat](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearConcat) | 36 | 17014 | 7576 |
-| com.microsoft | [QLinearGlobalAveragePool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearGlobalAveragePool) | 36 | 11836 | 948164 |
-| com.microsoft | [QLinearLeakyRelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearLeakyRelu) | 2 | 526 | 225 |
-| com.microsoft | [QLinearMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearMul) | 36 | 12716 | 7012 |
-| com.microsoft | [QLinearSigmoid](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearSigmoid) | 4 | 998 | 397 |
-| com.microsoft | [QLinearSoftmax](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearSoftmax) | 8 | 2360 | 1616 |
-| com.microsoft | [QLinearWhere](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearWhere) | 10 | 3756 | 734 |
-| com.microsoft | [QuantizeLinear](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QuantizeLinear) | 6 | 1195 | 728 |
-| com.microsoft | [RotaryEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.RotaryEmbedding) | 12 | 3996 | 13182 |
-| com.microsoft | [SampleOp](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SampleOp) | 1 | 115 | 58 |
-| ai.onnx | [Scale](https://onnx.ai/onnx/operators/onnx__Scale.html) | 2 | 212 | 108 |
-| com.microsoft | [SkipLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SkipLayerNormalization) | 17 | 5029 | 4285 |
-| com.microsoft | [SparseToDenseMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SparseToDenseMatMul) | 8 | 1736 | 14176 |
-| com.microsoft | [Tokenizer](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Tokenizer) | 28 | 5846 | 2067 |
-| com.microsoft | [Trilu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Trilu) | 16 | 2428 | 2068 |
-| com.microsoft | [UnfoldTensor](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.UnfoldTensor) | 2 | 401 | 960 |
-| com.microsoft | [Unique](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Unique) | 4 | 712 | 580 |
-| com.microsoft | [WordConvEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.WordConvEmbedding) | 6 | 1700 | 1400 |
+| Domain | Operator | Test cases | Negative test cases | .onnx bytes | .pb bytes |
+| --- | --- | --- | --- | --- | --- |
+| ai.onnx | [Affine](https://onnx.ai/onnx/operators/onnx__Affine.html) | 2 | 0 | 248 | 108 |
+| com.microsoft | [Attention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Attention) | 65 | 0 | 30123 | 22956228 |
+| com.microsoft | [AttnLSTM](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.AttnLSTM) | 6 | 0 | 3546 | 6729 |
+| com.microsoft | [BiasGelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BiasGelu) | 6 | 0 | 888 | 140252 |
+| com.microsoft | [BifurcationDetector](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BifurcationDetector) | 2 | 0 | 718 | 668 |
+| com.microsoft | [CDist](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.CDist) | 3 | 0 | 500 | 475 |
+| com.microsoft | [ConvTransposeWithDynamicPads](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.ConvTransposeWithDynamicPads) | 1 | 0 | 362 | 306 |
+| ai.onnx | [Crop](https://onnx.ai/onnx/operators/onnx__Crop.html) | 4 | 0 | 567 | 538 |
+| com.microsoft | [CropAndResize](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.CropAndResize) | 10 | 0 | 3229 | 2194 |
+| com.microsoft | [DecoderMaskedMultiHeadAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DecoderMaskedMultiHeadAttention) | 2 | 0 | 1126 | 1063910 |
+| com.microsoft | [DequantizeLinear](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DequantizeLinear) | 11 | 0 | 2256 | 1076 |
+| com.microsoft | [DynamicQuantizeLSTM](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicQuantizeLSTM) | 50 | 0 | 5860856 | 6826532 |
+| com.microsoft | [DynamicQuantizeMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicQuantizeMatMul) | 39 | 0 | 369960 | 437651 |
+| ai.onnx | [DynamicSlice](https://onnx.ai/onnx/operators/onnx__DynamicSlice.html) | 12 | 0 | 2342 | 2180 |
+| com.microsoft | [DynamicTimeWarping](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicTimeWarping) | 1 | 0 | 162 | 368 |
+| com.microsoft | [EmbedLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.EmbedLayerNormalization) | 10 | 0 | 6726 | 2137 |
+| com.microsoft | [ExpandDims](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.ExpandDims) | 11 | 4 | 1608 | 746 |
+| com.microsoft | [FastGelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FastGelu) | 3 | 0 | 447 | 262 |
+| com.microsoft | [FusedConv](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FusedConv) | 4 | 0 | 1373 | 661 |
+| com.microsoft | [FusedMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FusedMatMul) | 192 | 0 | 50724 | 27456 |
+| com.microsoft | [GatherBlockQuantized](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.GatherBlockQuantized) | 222 | 70 | 81024 | 47531 |
+| com.microsoft | [GridSample](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.GridSample) | 8 | 0 | 2014 | 1722 |
+| ai.onnx | [ImageScaler](https://onnx.ai/onnx/operators/onnx__ImageScaler.html) | 1 | 0 | 174 | 103 |
+| com.microsoft | [Inverse](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Inverse) | 5 | 0 | 640 | 1905 |
+| ai.onnx | [LayerNormalization](https://onnx.ai/onnx/operators/onnx__LayerNormalization.html) | 34 | 0 | 8172 | 13417 |
+| com.microsoft | [MatMulBnb4](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulBnb4) | 768 | 0 | 13827696 | 46070688 |
+| com.microsoft | [MatMulInteger16](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulInteger16) | 4 | 0 | 672 | 244 |
+| com.microsoft | [MatMulIntegerToFloat](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulIntegerToFloat) | 48 | 0 | 407508 | 546948 |
+| com.microsoft | [MatMulNBits](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulNBits) | 1042 | 0 | 240039149 | 100356328 |
+| com.microsoft | [MaxpoolWithMask](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MaxpoolWithMask) | 1 | 0 | 286 | 1595 |
+| ai.onnx | [MeanVarianceNormalization](https://onnx.ai/onnx/operators/onnx__MeanVarianceNormalization.html) | 4 | 0 | 860 | 924 |
+| com.microsoft | [MoE](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MoE) | 1 | 0 | 491 | 965 |
+| com.microsoft | [MultiHeadAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MultiHeadAttention) | 28 | 0 | 11470 | 79264 |
+| com.microsoft | [MurmurHash3](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MurmurHash3) | 17 | 1 | 2584 | 467 |
+| com.microsoft | [NGramRepeatBlock](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.NGramRepeatBlock) | 1 | 0 | 227 | 296 |
+| com.microsoft | [NhwcMaxPool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.NhwcMaxPool) | 562 | 0 | 129260 | 30325532 |
+| com.microsoft | [QAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QAttention) | 24 | 0 | 7089692 | 10952280 |
+| com.microsoft | [QEmbedLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QEmbedLayerNormalization) | 12 | 0 | 12794 | 2836 |
+| com.microsoft | [QGemm](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QGemm) | 624 | 0 | 13033872 | 13253328 |
+| com.microsoft | [QLinearAdd](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearAdd) | 36 | 0 | 12716 | 7012 |
+| com.microsoft | [QLinearAveragePool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearAveragePool) | 72 | 0 | 31176 | 54496 |
+| com.microsoft | [QLinearConcat](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearConcat) | 36 | 12 | 17014 | 7576 |
+| com.microsoft | [QLinearGlobalAveragePool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearGlobalAveragePool) | 36 | 0 | 11836 | 948164 |
+| com.microsoft | [QLinearLeakyRelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearLeakyRelu) | 2 | 0 | 526 | 225 |
+| com.microsoft | [QLinearMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearMul) | 36 | 0 | 12716 | 7012 |
+| com.microsoft | [QLinearSigmoid](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearSigmoid) | 4 | 0 | 998 | 397 |
+| com.microsoft | [QLinearSoftmax](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearSoftmax) | 8 | 0 | 2360 | 1616 |
+| com.microsoft | [QLinearWhere](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearWhere) | 10 | 0 | 3756 | 734 |
+| com.microsoft | [QuantizeLinear](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QuantizeLinear) | 6 | 0 | 1195 | 728 |
+| com.microsoft | [RotaryEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.RotaryEmbedding) | 12 | 0 | 3996 | 13182 |
+| com.microsoft | [SampleOp](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SampleOp) | 1 | 0 | 115 | 58 |
+| ai.onnx | [Scale](https://onnx.ai/onnx/operators/onnx__Scale.html) | 2 | 0 | 212 | 108 |
+| com.microsoft | [SkipLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SkipLayerNormalization) | 17 | 0 | 5029 | 4285 |
+| com.microsoft | [SparseToDenseMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SparseToDenseMatMul) | 8 | 0 | 1736 | 14176 |
+| com.microsoft | [Tokenizer](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Tokenizer) | 28 | 0 | 5846 | 2067 |
+| com.microsoft | [Trilu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Trilu) | 16 | 0 | 2428 | 2068 |
+| com.microsoft | [UnfoldTensor](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.UnfoldTensor) | 2 | 0 | 401 | 960 |
+| com.microsoft | [Unique](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Unique) | 4 | 0 | 712 | 580 |
+| com.microsoft | [WordConvEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.WordConvEmbedding) | 6 | 4 | 1700 | 1400 |
 
 ## Operator test cases
 
@@ -136,3 +136,69 @@ Tracked test cases: 4182. Distinct operators: 59.
 | com.microsoft | [UnfoldTensor](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.UnfoldTensor) | test/contrib_ops/tensor_op_test/LastDim_run0<br>test/contrib_ops/tensor_op_test/NormalDim_run0 |
 | com.microsoft | [Unique](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Unique) | test/contrib_ops/unique_op_test/Unique_AllUniqueElements_run0<br>test/contrib_ops/unique_op_test/Unique_Complicated_Example_run0<br>test/contrib_ops/unique_op_test/Unique_Example_SingleElement_run0<br>test/contrib_ops/unique_op_test/Unique_Spec_Example_run0 |
 | com.microsoft | [WordConvEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.WordConvEmbedding) | test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_run0<br>test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_char_embedding_shape_conv_shape_not_match_run0<br>test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_char_embedding_size_mismatch_run0<br>test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_conv_window_size_mismatch_run0<br>test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_embedding_size_mismatch_run0<br>test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_valid_attribute_run0 |
+
+## Positive test cases by engine
+
+Counts positive test cases per provider. A positive case counts for a provider when that provider is not excluded and, if `included_providers` is present, it is explicitly included there.
+
+| Domain | Operator | Total positive test cases | CPU | CUDANHWC | CoreML | Dnnl | NNAPI | OpenVINO | QNN | TensorRT | WebGPU |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ai.onnx | [Affine](https://onnx.ai/onnx/operators/onnx__Affine.html) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| com.microsoft | [Attention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Attention) | 65 | 65 | 1 :warning: | 1 :warning: | 1 :warning: | 1 :warning: | 1 :warning: | 1 :warning: | 1 :warning: | 1 :warning: |
+| com.microsoft | [AttnLSTM](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.AttnLSTM) | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 |
+| com.microsoft | [BiasGelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BiasGelu) | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 |
+| com.microsoft | [BifurcationDetector](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.BifurcationDetector) | 2 | 2 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [CDist](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.CDist) | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| com.microsoft | [ConvTransposeWithDynamicPads](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.ConvTransposeWithDynamicPads) | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ai.onnx | [Crop](https://onnx.ai/onnx/operators/onnx__Crop.html) | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 2 :warning: | 4 |
+| com.microsoft | [CropAndResize](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.CropAndResize) | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 0 :warning: | 10 |
+| com.microsoft | [DecoderMaskedMultiHeadAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DecoderMaskedMultiHeadAttention) | 2 | 2 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [DequantizeLinear](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DequantizeLinear) | 11 | 11 | 11 | 11 | 11 | 11 | 11 | 11 | 6 :warning: | 11 |
+| com.microsoft | [DynamicQuantizeLSTM](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicQuantizeLSTM) | 50 | 50 | 48 :warning: | 48 :warning: | 48 :warning: | 48 :warning: | 48 :warning: | 48 :warning: | 48 :warning: | 48 :warning: |
+| com.microsoft | [DynamicQuantizeMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicQuantizeMatMul) | 39 | 39 | 39 | 39 | 39 | 39 | 1 :warning: | 39 | 39 | 39 |
+| ai.onnx | [DynamicSlice](https://onnx.ai/onnx/operators/onnx__DynamicSlice.html) | 12 | 12 | 12 | 12 | 12 | 12 | 12 | 12 | 12 | 12 |
+| com.microsoft | [DynamicTimeWarping](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.DynamicTimeWarping) | 1 | 1 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [EmbedLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.EmbedLayerNormalization) | 10 | 10 | 10 | 10 | 10 | 10 | 0 :warning: | 10 | 10 | 10 |
+| com.microsoft | [ExpandDims](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.ExpandDims) | 7 | 7 | 7 | 7 | 7 | 7 | 7 | 7 | 7 | 7 |
+| com.microsoft | [FastGelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FastGelu) | 3 | 3 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [FusedConv](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FusedConv) | 4 | 4 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [FusedMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.FusedMatMul) | 192 | 192 | 192 | 192 | 192 | 192 | 0 :warning: | 0 :warning: | 0 :warning: | 192 |
+| com.microsoft | [GatherBlockQuantized](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.GatherBlockQuantized) | 152 | 152 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [GridSample](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.GridSample) | 8 | 8 | 0 :warning: | 8 | 8 | 8 | 8 | 7 :warning: | 8 | 8 |
+| ai.onnx | [ImageScaler](https://onnx.ai/onnx/operators/onnx__ImageScaler.html) | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| com.microsoft | [Inverse](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Inverse) | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| ai.onnx | [LayerNormalization](https://onnx.ai/onnx/operators/onnx__LayerNormalization.html) | 34 | 34 | 26 :warning: | 23 :warning: | 20 :warning: | 21 :warning: | 21 :warning: | 21 :warning: | 21 :warning: | 24 :warning: |
+| com.microsoft | [MatMulBnb4](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulBnb4) | 768 | 768 | 768 | 768 | 768 | 768 | 768 | 768 | 768 | 768 |
+| com.microsoft | [MatMulInteger16](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulInteger16) | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 |
+| com.microsoft | [MatMulIntegerToFloat](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulIntegerToFloat) | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 |
+| com.microsoft | [MatMulNBits](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MatMulNBits) | 1042 | 1042 | 495 :warning: | 495 :warning: | 495 :warning: | 495 :warning: | 495 :warning: | 495 :warning: | 495 :warning: | 495 :warning: |
+| com.microsoft | [MaxpoolWithMask](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MaxpoolWithMask) | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ai.onnx | [MeanVarianceNormalization](https://onnx.ai/onnx/operators/onnx__MeanVarianceNormalization.html) | 4 | 4 | 4 | 4 | 4 | 4 | 0 :warning: | 4 | 0 :warning: | 4 |
+| com.microsoft | [MoE](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MoE) | 1 | 1 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [MultiHeadAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MultiHeadAttention) | 28 | 28 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [MurmurHash3](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.MurmurHash3) | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 |
+| com.microsoft | [NGramRepeatBlock](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.NGramRepeatBlock) | 1 | 1 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [NhwcMaxPool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.NhwcMaxPool) | 562 | 562 | 562 | 562 | 562 | 562 | 562 | 562 | 562 | 562 |
+| com.microsoft | [QAttention](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QAttention) | 24 | 24 | 8 :warning: | 8 :warning: | 8 :warning: | 8 :warning: | 8 :warning: | 8 :warning: | 8 :warning: | 8 :warning: |
+| com.microsoft | [QEmbedLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QEmbedLayerNormalization) | 12 | 12 | 12 | 12 | 12 | 12 | 12 | 12 | 12 | 12 |
+| com.microsoft | [QGemm](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QGemm) | 624 | 624 | 624 | 624 | 624 | 624 | 624 | 624 | 624 | 624 |
+| com.microsoft | [QLinearAdd](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearAdd) | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 |
+| com.microsoft | [QLinearAveragePool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearAveragePool) | 72 | 72 | 72 | 72 | 72 | 54 :warning: | 72 | 72 | 72 | 72 |
+| com.microsoft | [QLinearConcat](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearConcat) | 24 | 24 | 24 | 24 | 24 | 24 | 24 | 24 | 24 | 24 |
+| com.microsoft | [QLinearGlobalAveragePool](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearGlobalAveragePool) | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 |
+| com.microsoft | [QLinearLeakyRelu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearLeakyRelu) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| com.microsoft | [QLinearMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearMul) | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 | 36 |
+| com.microsoft | [QLinearSigmoid](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearSigmoid) | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 |
+| com.microsoft | [QLinearSoftmax](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearSoftmax) | 8 | 8 | 8 | 8 | 8 | 8 | 8 | 8 | 8 | 8 |
+| com.microsoft | [QLinearWhere](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QLinearWhere) | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| com.microsoft | [QuantizeLinear](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.QuantizeLinear) | 6 | 6 | 6 | 6 | 6 | 6 | 4 :warning: | 6 | 0 :warning: | 6 |
+| com.microsoft | [RotaryEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.RotaryEmbedding) | 12 | 12 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [SampleOp](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SampleOp) | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ai.onnx | [Scale](https://onnx.ai/onnx/operators/onnx__Scale.html) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| com.microsoft | [SkipLayerNormalization](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SkipLayerNormalization) | 17 | 17 | 1 :warning: | 1 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 1 :warning: |
+| com.microsoft | [SparseToDenseMatMul](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.SparseToDenseMatMul) | 8 | 8 | 8 | 8 | 8 | 8 | 8 | 8 | 8 | 8 |
+| com.microsoft | [Tokenizer](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Tokenizer) | 28 | 28 | 28 | 28 | 28 | 28 | 28 | 28 | 28 | 28 |
+| com.microsoft | [Trilu](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Trilu) | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 |
+| com.microsoft | [UnfoldTensor](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.UnfoldTensor) | 2 | 2 | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: | 0 :warning: |
+| com.microsoft | [Unique](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.Unique) | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 0 :warning: | 4 |
+| com.microsoft | [WordConvEmbedding](https://github.com/microsoft/onnxruntime/blob/main/docs/ContribOperators.md#com.microsoft.WordConvEmbedding) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
