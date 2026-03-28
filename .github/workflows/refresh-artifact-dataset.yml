@@ -81,10 +81,6 @@ jobs:
           mkdir -p artifacts
           python tools/scripts/extract_test_artifacts.py --artifacts-output artifacts --rebuild
 
-      - name: Show ccache statistics
-        if: always()
-        run: ccache -s
-
       - name: Refresh validation expectations
         if: env.WARM_CCACHE_ONLY != 'true'
         run: python tools/scripts/update_artifact_validation_expectations.py
