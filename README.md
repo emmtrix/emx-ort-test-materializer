@@ -86,3 +86,7 @@ and the tooling is only a means to refresh them.
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
+  
+## Maintained by
+
+This project is maintained by [emmtrix Technologies GmbH](https://www.emmtrix.com).
