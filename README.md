@@ -5,6 +5,7 @@ That is great for ORT's own CI, but makes the test cases inconvenient to reuse o
 the ONNX Runtime test harness.
 
 This repository materializes those test cases into a versioned dataset of [`ONNX`](https://github.com/onnx/onnx) artifacts.
+This dataset was originally developed to validate [`emx-onnx-cgen`](https://github.com/emmtrix/emx-onnx-cgen), a compiler that generates C code from ONNX models.
 The core artifact layout follows the [ONNX backend test-data layout](https://github.com/onnx/onnx/tree/main/onnx/backend/test/data)
 (`model.onnx` plus `test_data_set_<n>/` with `input_*.pb` / `output_*.pb`). The main difference is the additional
 `validation.json` metadata files shipped alongside each test case (plus aggregated validation reports).
