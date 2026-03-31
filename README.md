@@ -35,7 +35,7 @@ If you only need reusable test inputs and expected outputs, start in
 Useful files:
 
 - [`artifacts/README.md`](artifacts/README.md): artifact layout and format.
-- [`artifacts/MANIFEST.json`](artifacts/MANIFEST.json): dataset metadata.
+- [`artifacts/MANIFEST.json`](artifacts/MANIFEST.json): dataset metadata, including the tracked artifact roots.
 - [`artifacts/OPERATORS.md`](artifacts/OPERATORS.md): generated operator summary with counts and grouped test-case lists.
 - [`artifacts/VALIDATION_ERRORS.md`](artifacts/VALIDATION_ERRORS.md): generated validation overview.
 - `artifacts/.../validation.json`: per-test-case replay metadata captured from the originating ORT test.

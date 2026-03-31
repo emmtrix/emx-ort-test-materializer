@@ -10,7 +10,7 @@ the maintenance tooling under `tools/`.
 
 - `onnxruntime/`: tracked artifact dataset mirroring ONNX Runtime test sources.
 - `onnxruntime-negative/`: tracked expected-failure artifact dataset mirroring the same source layout.
-- `MANIFEST.json`: dataset-level metadata, including the pinned source version.
+- `MANIFEST.json`: dataset-level metadata, including the pinned source version and tracked artifact roots.
 - `OPERATORS.md`: generated Markdown summary of operators, counts, and grouped test-case paths.
 - `VALIDATION_ERRORS.md`: generated summary of non-OK validation outcomes and ignored cases.
 
