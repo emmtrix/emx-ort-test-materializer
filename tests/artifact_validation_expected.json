@@ -1,6 +1,370 @@
 {
   "test_cases": [
     {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/expand_dims_test/NegativeAxisOutOfRange_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/expand_dims_test/NegativeAxisOutOfRange_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/expand_dims_test/PositiveAxisOutOfRange_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/expand_dims_test/PositiveAxisOutOfRange_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run10",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run11",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run6",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run7",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run8",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run9",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run10",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run11",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run12",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run13",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run14",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run15",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run16",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run17",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run18",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run19",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run20",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run21",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run22",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run23",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run4",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run5",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run6",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run7",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run8",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run9",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run2",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run3",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/murmur_hash3_test/UnsupportedInputType_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_0_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_0_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_1_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_1_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_0_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_0_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_1_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_1_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_0_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_0_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_1_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_1_run1",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_char_embedding_shape_conv_shape_not_match_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_char_embedding_size_mismatch_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_conv_window_size_mismatch_run0",
+      "expected_result": "OK"
+    },
+    {
+      "path": "artifacts/onnxruntime-negative/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_embedding_size_mismatch_run0",
+      "expected_result": "OK"
+    },
+    {
       "path": "artifacts/onnxruntime/test/contrib_ops/attention_lstm_op_test/BidirectionLstmWithBahdanauAM2BatchShortenSeqLen_run0",
       "expected_result": "OK"
     },
@@ -678,22 +1042,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/expand_dims_test/MinAxis_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/expand_dims_test/NegativeAxisOutOfRange_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/expand_dims_test/NegativeAxisOutOfRange_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/expand_dims_test/PositiveAxisOutOfRange_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/expand_dims_test/PositiveAxisOutOfRange_run1",
       "expected_result": "OK"
     },
     {
@@ -2098,286 +2446,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/GatherAxis2_run9",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidBlockSize_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidGatherAxis_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidIndices_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/InvalidQuantizeAxis_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run10",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run11",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run6",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run7",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run8",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/NotSupportedBits_run9",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/ShapeMismatch_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run10",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run11",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run12",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run13",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run14",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run15",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run16",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run17",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run18",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run19",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run20",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run21",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run22",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run23",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run3",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run4",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run5",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run6",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run7",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run8",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedTypes_run9",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run2",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/gather_block_quantized_op_test/UnsupportedUInt8DataType_run3",
       "expected_result": "OK"
     },
     {
@@ -10209,10 +10277,6 @@
       "expected_result": "OK"
     },
     {
-      "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/UnsupportedInputType_run0",
-      "expected_result": "OK"
-    },
-    {
       "path": "artifacts/onnxruntime/test/contrib_ops/murmur_hash3_test/ZeroSeedDoubleResult_run0",
       "expected_result": "OK"
     },
@@ -12854,54 +12918,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_MixedConstDynamic_run7",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_0_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_0_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_1_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongScaleType_1_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_0_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_0_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_1_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongTensorType_1_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_0_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_0_run1",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_1_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/qlinear_concat_test/ExpectFail_WrongZeroPointType_1_run1",
       "expected_result": "OK"
     },
     {
@@ -16702,22 +16718,6 @@
     },
     {
       "path": "artifacts/onnxruntime/test/contrib_ops/unique_op_test/Unique_Spec_Example_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_char_embedding_shape_conv_shape_not_match_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_char_embedding_size_mismatch_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_conv_window_size_mismatch_run0",
-      "expected_result": "OK"
-    },
-    {
-      "path": "artifacts/onnxruntime/test/contrib_ops/word_conv_embedding_test/WordConvEmbedding_embedding_size_mismatch_run0",
       "expected_result": "OK"
     },
     {

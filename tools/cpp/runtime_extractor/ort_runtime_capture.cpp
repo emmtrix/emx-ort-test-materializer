@@ -242,6 +242,24 @@ std::string SanitizePathComponent(std::string_view value) {
   return sanitized;
 }
 
+fs::path RewriteArtifactSourcePathForStorage(const CapturedRecord& record) {
+  const fs::path source_file(record.source_file);
+  if (!record.expects_failure) {
+    return source_file;
+  }
+
+  auto component = source_file.begin();
+  if (component == source_file.end() || component->generic_string() != "onnxruntime") {
+    return source_file;
+  }
+
+  fs::path rewritten("onnxruntime-negative");
+  for (++component; component != source_file.end(); ++component) {
+    rewritten /= *component;
+  }
+  return rewritten;
+}
+
 void NormalizeGraphProtoForSerialization(ONNX_NAMESPACE::GraphProto* graph);
 
 void NormalizeAttributeProtoForSerialization(ONNX_NAMESPACE::AttributeProto* attribute) {
@@ -434,7 +452,7 @@ void WriteValidationMetadataToFile(const CapturedRecord& record, const fs::path&
 }
 
 fs::path BuildArtifactDirectory(const CapturedRecord& record, const fs::path& artifact_root) {
-  const fs::path source_file(record.source_file);
+  const fs::path source_file = RewriteArtifactSourcePathForStorage(record);
   return artifact_root / source_file.parent_path() / source_file.stem() /
          (SanitizePathComponent(record.test_name) + "_run" + std::to_string(record.run_index));
 }

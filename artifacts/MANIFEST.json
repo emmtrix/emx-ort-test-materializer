@@ -1,6 +1,10 @@
 {
   "dataset_name": "ONNX Runtime test artifacts",
   "artifact_root": "artifacts/onnxruntime",
+  "artifact_roots": [
+    "artifacts/onnxruntime",
+    "artifacts/onnxruntime-negative"
+  ],
   "repository_role": "artifact-first",
   "tracked_artifacts_are_primary_payload": true,
   "source_repository": "https://github.com/microsoft/onnxruntime",

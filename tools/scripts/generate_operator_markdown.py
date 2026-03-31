@@ -18,7 +18,7 @@ from emx_ort_test_materializer.operator_markdown import (
 )
 
 
-DEFAULT_ARTIFACTS_ROOT = REPO_ROOT / "artifacts" / "onnxruntime"
+DEFAULT_ARTIFACTS_ROOT = REPO_ROOT / "artifacts"
 DEFAULT_OUTPUT_PATH = REPO_ROOT / "artifacts" / "OPERATORS.md"
 
 

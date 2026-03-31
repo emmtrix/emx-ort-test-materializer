@@ -23,7 +23,7 @@ from emx_ort_test_materializer.operator_markdown import (
 
 
 REPORT_PATH = REPO_ROOT / "artifacts" / "OPERATORS.md"
-ARTIFACTS_ROOT = REPO_ROOT / "artifacts" / "onnxruntime"
+ARTIFACTS_ROOT = REPO_ROOT / "artifacts"
 
 
 def make_single_operator_model(op_type: str, *, domain: str = "") -> onnx.ModelProto:
@@ -207,6 +207,42 @@ def test_render_operator_markdown_renders_both_tables(tmp_path: Path) -> None:
         "[Relu](https://onnx.ai/onnx/operators/onnx__Relu.html) "
         "| 1 | 0 :warning: |"
     ) in markdown
+
+
+def test_render_operator_markdown_includes_multiple_dataset_roots(tmp_path: Path) -> None:
+    sample_root = tmp_path / "artifacts"
+
+    positive_case_dir = sample_root / "onnxruntime" / "test" / "suite" / "Abs_run0"
+    positive_case_dir.mkdir(parents=True)
+    onnx.save(make_single_operator_model("Abs"), positive_case_dir / "model.onnx")
+
+    negative_case_dir = (
+        sample_root / "onnxruntime-negative" / "test" / "suite" / "Abs_run1"
+    )
+    negative_case_dir.mkdir(parents=True)
+    onnx.save(make_single_operator_model("Abs"), negative_case_dir / "model.onnx")
+    (negative_case_dir / "validation.json").write_text(
+        json.dumps(
+            {
+                "expects_failure": True,
+                "expected_failure_substring": "expected failure",
+                "outputs": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    cases = load_single_operator_cases(sample_root)
+    markdown = render_operator_markdown(
+        cases,
+        repo_root=REPO_ROOT,
+        artifacts_root=sample_root,
+    )
+
+    assert "Artifact roots:" in markdown
+    assert "onnxruntime-negative" in markdown
+    assert "onnxruntime/test/suite/Abs_run0" in markdown
+    assert "onnxruntime-negative/test/suite/Abs_run1" in markdown
 
 
 def test_operator_markdown_report() -> None:

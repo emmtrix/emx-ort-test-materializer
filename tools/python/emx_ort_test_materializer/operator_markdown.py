@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
+from emx_ort_test_materializer.artifact_roots import discover_artifact_dataset_roots
 from emx_ort_test_materializer.operator_inventory import (
     OperatorCase,
     load_operator_cases,
@@ -77,7 +78,7 @@ def single_operator_case(case: OperatorCase, *, artifacts_root: Path) -> SingleO
             f"Expected exactly one operator for {case.path}, found {len(case.operators)}: "
             f"{', '.join(case.operators)}"
         )
-    case_dir = artifacts_root / Path(case.path)
+    case_dir = case.case_dir
     validation = load_validation_metadata(case_dir)
     return SingleOperatorCase(
         path=case.path,
@@ -182,10 +183,12 @@ def render_operator_markdown(
     artifacts_root: Path,
 ) -> str:
     """Render the operator summary as Markdown."""
-    try:
-        artifacts_root_label = artifacts_root.relative_to(repo_root).as_posix()
-    except ValueError:
-        artifacts_root_label = artifacts_root.as_posix()
+    artifact_root_labels: list[str] = []
+    for dataset_root in discover_artifact_dataset_roots(artifacts_root):
+        try:
+            artifact_root_labels.append(dataset_root.relative_to(repo_root).as_posix())
+        except ValueError:
+            artifact_root_labels.append(dataset_root.as_posix())
 
     grouped = group_cases_by_operator(cases)
     engines = engine_columns(cases)
@@ -195,7 +198,12 @@ def render_operator_markdown(
         "",
         "Summarizes tracked artifact test cases under a single-operator assumption.",
         "",
-        f"Artifact root: `{artifacts_root_label}`",
+        (
+            f"Artifact root: `{artifact_root_labels[0]}`"
+            if len(artifact_root_labels) == 1
+            else "Artifact roots: "
+            + ", ".join(f"`{label}`" for label in artifact_root_labels)
+        ),
         "",
         f"Tracked test cases: {len(cases)}. Distinct operators: {len(grouped)}.",
         "",
