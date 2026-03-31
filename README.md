@@ -61,7 +61,17 @@ artifacts/
       contrib_ops/
       testdata/
       providers/
+  onnxruntime-negative/
+    test/
+      python/
+      contrib_ops/
+      testdata/
+      providers/
 ```
+
+Expected-failure test cases may be tracked under `artifacts/onnxruntime-negative/`
+instead of `artifacts/onnxruntime/`. Positive cases remain under
+`artifacts/onnxruntime/`.
 
 Each currently checked-in test-case directory contains:
 

@@ -8,6 +8,11 @@ from pathlib import Path
 import onnx
 from onnx import AttributeProto, GraphProto, ModelProto
 
+from emx_ort_test_materializer.artifact_roots import (
+    artifact_case_path_base,
+    discover_artifact_dataset_roots,
+)
+
 DEFAULT_OPERATOR_DOMAIN = "ai.onnx"
 
 
@@ -16,6 +21,7 @@ class OperatorCase:
     """One artifact test case together with the operators used by its model."""
 
     path: str
+    case_dir: Path
     operators: tuple[str, ...]
 
 
@@ -62,13 +68,18 @@ def case_operators_from_model(model: ModelProto) -> tuple[str, ...]:
 
 def load_operator_cases(artifacts_root: Path) -> list[OperatorCase]:
     """Load all tracked artifact models below ``artifacts_root`` into case rows."""
+    dataset_roots = discover_artifact_dataset_roots(artifacts_root)
+    path_base = artifact_case_path_base(artifacts_root, dataset_roots)
     cases: list[OperatorCase] = []
-    for model_path in sorted(artifacts_root.rglob("model.onnx")):
-        model = onnx.load(model_path, load_external_data=False)
-        cases.append(
-            OperatorCase(
-                path=model_path.parent.relative_to(artifacts_root).as_posix(),
-                operators=case_operators_from_model(model),
+    for dataset_root in dataset_roots:
+        for model_path in sorted(dataset_root.rglob("model.onnx")):
+            model = onnx.load(model_path, load_external_data=False)
+            case_dir = model_path.parent
+            cases.append(
+                OperatorCase(
+                    path=case_dir.relative_to(path_base).as_posix(),
+                    case_dir=case_dir,
+                    operators=case_operators_from_model(model),
+                )
             )
-        )
     return cases

@@ -9,6 +9,7 @@ the maintenance tooling under `tools/`.
 ## Contents
 
 - `onnxruntime/`: tracked artifact dataset mirroring ONNX Runtime test sources.
+- `onnxruntime-negative/`: tracked expected-failure artifact dataset mirroring the same source layout.
 - `MANIFEST.json`: dataset-level metadata, including the pinned source version.
 - `OPERATORS.md`: generated Markdown summary of operators, counts, and grouped test-case paths.
 - `VALIDATION_ERRORS.md`: generated summary of non-OK validation outcomes and ignored cases.
@@ -46,6 +47,16 @@ artifacts/
       providers/
         <name>/
           ...
+  onnxruntime-negative/
+    test/
+      python/
+        ...
+      contrib_ops/
+        ...
+      testdata/
+        ...
+      providers/
+        ...
 ```
 
 ## Source-to-Artifact Mapping
@@ -54,7 +65,7 @@ artifacts/
 | --- | --- | --- |
 | `onnxruntime/test/python/contrib_ops/<file>.py` | `onnxruntime/test/python/contrib_ops/<file>/<test_case>/` | Python runtime instrumentation |
 | `onnxruntime/test/python/<file>.py` | `onnxruntime/test/python/<file>/<test_case>/` | Python runtime instrumentation |
-| `onnxruntime/test/contrib_ops/<file>.cc` | `onnxruntime/test/contrib_ops/<file>/<test_name>_run<n>/` | Runtime `OpTester` wrapper |
+| `onnxruntime/test/contrib_ops/<file>.cc` | `onnxruntime/test/contrib_ops/<file>/<test_name>_run<n>/` or `onnxruntime-negative/test/contrib_ops/<file>/<test_name>_run<n>/` | Runtime `OpTester` wrapper |
 | `onnxruntime/test/testdata/<name>/` | `onnxruntime/test/testdata/<name>/` | Static copy from ORT checkout |
 | `onnxruntime/test/providers/<name>/` | `onnxruntime/test/providers/<name>/` | Static copy from ORT checkout |
 

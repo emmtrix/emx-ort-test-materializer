@@ -25,3 +25,11 @@ def test_runtime_capture_normalizes_session_options_for_determinism() -> None:
     assert "session_options.use_per_session_threads = false;" in source
     assert "session_options.intra_op_param.thread_pool_size = 1;" in source
     assert "session_options.inter_op_param.thread_pool_size = 1;" in source
+
+
+def test_runtime_capture_rewrites_negative_cases_to_separate_root() -> None:
+    source = CAPTURE_CPP.read_text(encoding="utf-8")
+
+    assert "fs::path RewriteArtifactSourcePathForStorage(const CapturedRecord& record)" in source
+    assert 'component->generic_string() != "onnxruntime"' in source
+    assert 'fs::path rewritten("onnxruntime-negative");' in source
